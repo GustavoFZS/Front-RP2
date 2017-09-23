@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="orcamento">
+	<head
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<link rel="stylesheet" href="components/bootstrap/dist/css/bootstrap.css">
+		<!-- <link rel="stylesheet" href="components/font-awesome/css/font-awesome.css"> -->
+		<link rel="stylesheet" href="css/formatacao.css">
+		<style>
+
+		</style>
+	</head>
+	<body>
+		<!-- <section ng-controller="PostCtrl">
+			<div class="container">
+				OIOIOI<br><br>
+				<div ng-repeat="post in posts">
+					{{ post.likes }}
+					<br>
+					<button class="" ng-click="addLike(post)">
+						CLICA CARALHO
+					</button>
+				</div>
+			</div>
+		</section> -->
+
+
+
+		<div style="width: 100%; height: 50px; background-color:#444444;">
+			<div class="row-fluid user-row">
+				<div class="col-md-4 col-md-offset-4 alinhar">
+					<img src="imagens/logo-domytattoo.png" class="img-responsive" alt="Logo" width="170px" style="padding-top: 8px;"/>
+				</div>
+			</div>
+		</div>
+
+		<!-- <div class="pos-f-t">
+		  <div class="collapse" id="navbarToggleExternalContent">
+		    <div class="bg-inverse p-4">
+		      <h4 class="text-white">Collapsed content</h4>
+		      <span class="text-muted">Toggleable via the navbar brand.</span>
+		    </div>
+		  </div>
+		  <nav class="navbar navbar-inverse bg-inverse">
+		    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+		      <span class="navbar-toggler-icon"></span>
+		    </button>
+				<img style="margin-top: 10px;" src="imagens/logo-domytattoo.png" alt="" width="150px" >
+		  </nav>
+		</div> -->
+
+		<div class="container">
+			<div class="row main">
+				<div class="main-login main-center" style = 'text-align: center;'>
+					<h5>Informacoes sobre a tattoo.</h5>
+			  </div>
+				<div class="main-login main-center">
+					<form class="" method="post" action="#">
+
+						<div class="form-group">
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="tatuador" id="tatuador"  placeholder="Cliente" value="Mario"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="local" id="local"  placeholder="Local" value="Perna" />
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="largura" id="largura"  placeholder="Altura" value="10 cm"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="largura" id="largura"  placeholder="Largura" value="5 cm"/>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+									<input type="number" min="0" step="1.00"  data-number-to-fixed="2" placeholder="Valor" data-number-stepfactor="100" class="currency" id="c1" />
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+									<input type="text" class="form-control" name="descricao" id="descricao" placeholder="Descricao" value="Tatuagem no estilo blackwork">
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<a href="" target="_blank" style = "background-color:#0c8494;" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Responder</a>
+						</div>
+
+					</form>
+				</div>
+			</div>
+		</div>
+
+
+
+		<script src="components/angular/angular.js"></script>
+		<script src="components/angular-route/angular-route.js"></script>
+		<script src="components/bootstrap/dist/js/bootstrap.js"></script>
+		<script src="components/jquery/dist/jquery.js"></script>
+		<script src="javascript/controllers/post.js"></script>
+	</body>
+</html>
