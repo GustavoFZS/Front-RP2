@@ -1,22 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="login">
+<html ng-app="login">
 	<head
 		<meta charset="UTF-8">
 		<title>Document</title>
 		<link rel="stylesheet" href="components/bootstrap/dist/css/bootstrap.css">
-		<link rel="stylesheet" href="components/font-awesome/css/font-awesome.css">
 		<link rel="stylesheet" href="css/formatacao.css">
-		<style>
-			body  {
-				background-image: url("imagens/forearm-tattoo-designs-128.jpg");
-				background-repeat: no-repeat;
-				background-size: 90%;
-			}
-		</style>
+		<link rel="stylesheet" href="css/transparencia.css">
+		<script src="javascript/controllers/login.js"></script>
 	</head>
-	<body>
-		<div class="container">
-			<div style="position: absolute; width: 100%; height: 116px; top: 20%; left: 0;">
+	<body ng-controller="loginCtrl">
+		<div class="container transparent">
+			<div style="position: absolute; width: 100%; height: 116px; top: 5%; left: 0;">
 				<div class="row vertical-offset-100">
 					<div class="panel-heading">
 						<div class="row-fluid user-row">
@@ -25,36 +19,41 @@
 							</div>
 						</div>
 					</div>
+
+										      <li class="list-group-item" ng-repeat="usuario in usuarios | orderBy:'name' | filter:filtro">
+							      {{usuario.name}}
+							      </li>
+
 					<div class="col-md-4 col-md-offset-4">
-						<div class="panel panel-default">
-							<div class="panel-body">
-								<form accept-charset="UTF-8" role="form" class="form-signin">
-									<fieldset>
-										<label class="panel-login">
-											<div class="login_result"></div>
-										</label>
-										<div class="panel-heading">
-											<div class="row-fluid user-row">
-												<input class="form-control" placeholder="Username" id="username" type="text">
+						<div class="panel-body">
+							<form accept-charset="UTF-8" role="form" class="form-signin">
+								<fieldset>
+									<label class="panel-login">
+										<div class="login_result"></div>
+									</label>
+									<div class="panel-heading">
+										<div class="row-fluid user-row">
+											<input class="form-control" placeholder="Usuario" href="transparencia.css" id="Usuario" type="text"> 
+										</div>
+									</div>
+									<div class="panel-heading transparent">
+										<div class="row-fluid user-row transparent">
+											<input class="form-control" placeholder="Senha" id="Senha" type="password" >
+										</div>
+									</div>
+									<br></br>
+									<div class="form-group ">
+										<a style="background-color:#0c8494;" href="responder_orcamento.html" type="button" id="logingin-button" class="btn btn-primary btn-lg btn-block login-button">Entrar</a>
+									</div>
+									<div class="panel-heading">
+										<div class="row-fluid user-row">
+											<div class="col-md-4 col-md-offset-4 alinhar">
+												<a href="cadastrar.html">Cadastre-se</a>
 											</div>
 										</div>
-										<div class="panel-heading">
-											<div class="row-fluid user-row">
-												<input class="form-control" placeholder="Password" id="password" type="password">
-											</div>
-										</div>
-										<br></br>
-										<input class="btn btn-lg btn-success btn-block" type="submit" id="login" value="Login »">
-										<div class="panel-heading">
-											<div class="row-fluid user-row">
-												<div class="col-md-4 col-md-offset-4 alinhar">
-													<a href="cadastrar.html">Cadastre-se</a>
-												</div>
-											</div>
-										</div>
-									</fieldset>
-								</form>
-							</div>
+									</div>
+								</fieldset>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -64,6 +63,5 @@
 		<script src="components/angular-route/angular-route.js"></script>
 		<script src="components/bootstrap/dist/js/bootstrap.js"></script>
 		<script src="components/jquery/dist/jquery.js"></script>
-		<script src="javascript/controllers/post.js"></script>
 	</body>
 </html>

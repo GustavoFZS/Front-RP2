@@ -3,14 +3,9 @@ body {
   background-repeat: no-repeat;
   background-size: 100%;
   color: white;
-}
+  background-attachment: fixed;
+};
 
 .alinhar .img-responsive {
     margin: 0 auto;
-};
-
-.background2{
-  background-image: url('forearm-tattoo-designs-128.jpg');
-  background-repeat: no-repeat;
-  background-size: 100%;
 };

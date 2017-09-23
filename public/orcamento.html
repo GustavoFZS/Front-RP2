@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="orcamento">
+<html lang="en" ng-app="myApp">
 	<head>
 		<meta charset="UTF-8">
 		<title>Document</title>
 		<link rel="stylesheet" href="components/bootstrap/dist/css/bootstrap.css">
-		<!-- <link rel="stylesheet" href="components/font-awesome/css/font-awesome.css"> -->
 		<link rel="stylesheet" href="css/formatacao.css">
 	</head>
-	<body>
+	<body ng-controller="myCtrl">
 
 		<!-- <section ng-controller="PostCtrl">
 			<div class="container">
@@ -37,7 +36,6 @@
 			  </div>
 				<div class="main-login main-center">
 					<form class="" method="post" action="#">
-
 						<div class="form-group">
 							<div class="cols-sm-10">
 								<div class="input-group">
@@ -82,25 +80,19 @@
 								</div>
 							</div>
 						</div>
-
+						
 						<div class="form-group ">
 							<a style="background-color:#0c8494;" href="responder_orcamento.html" type="button" id="button" class="btn btn-primary btn-lg btn-block login-button">Enviar</a>
 						</div>
-
 					</form>
-
-
-
 				</div>
 			</div>
 		</div>
-
-
-
 		<script src="components/angular/angular.js"></script>
 		<script src="components/angular-route/angular-route.js"></script>
 		<script src="components/bootstrap/dist/js/bootstrap.js"></script>
 		<script src="components/jquery/dist/jquery.js"></script>
 		<script src="javascript/controllers/post.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 	</body>
 </html>

@@ -26,14 +26,13 @@ orcamento.controller("PostCtrl", ['$scope', function($scope, $http){
     post.likes -= 1;
   }
 
-  // $http.get('http://rest-service.guides.spring.io/greeting').then(function(response) {
-  //   $scope.greeting = response.data;
-  // });
-
-
-
-
-
-
+  $http({
+    method : "POST",
+    url : "http://do-my-tattoo.herokuapp.com"
+  }).then(function mySuccess(response) {
+      $scope.myWelcome = response.data;
+    }, function myError(response) {
+      $scope.myWelcome = response.statusText;
+  });
 
 }]);
