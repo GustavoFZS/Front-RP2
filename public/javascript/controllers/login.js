@@ -2,14 +2,14 @@ var serviceLogin = angular.module('login', []);
 
 serviceLogin.service('usuarioService', function($http) {
   // privado
-  var usuarios = {};
+  var message = {};
 
-  this.getStates = function(callback) {
+  this.getUsuarios = function($scope, callback) {
 
     $http({
       method: 'POST',
       url: 'https://do-my-tattoo.herokuapp.com/account/signin',
-      data: { 'username': 'josefsn', 'password': '1234'}
+      data: { 'username': '', 'password': ''}
     }).then(function (success){
       console.log(success);
       callback(success);
@@ -22,13 +22,16 @@ serviceLogin.service('usuarioService', function($http) {
 });
 
 //--- AQUI VAI O CONTROLLER (agora mais magro)
-serviceLogin.controller('loginCtrl', function($scope, usuarioService) {
+serviceLogin.controller('loginCtrl', function(, usuarioService) {
 
-  $scope.userName = 'teste';
-
-  usuarioService.getStates(function(data){
+  usuarioService.getUsuarios(function($scope, data){
     console.log('retornou');
-    $scope.usuarios = data;
+    $scope.message = data;
+  
+  if ($scope.message.message == 'Usuário não encontrado!') {
+    console.log('entro');
+  }
+
   });
 
 });
