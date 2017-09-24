@@ -7,8 +7,9 @@ serviceLogin.service('usuarioService', function($http) {
   this.getStates = function(callback) {
 
     $http({
-      method: 'GET',
-      url: 'https://do-my-tattoo.herokuapp.com/account/getProfile/59c5a717b68662b7beb0912b'
+      method: 'POST',
+      url: 'https://do-my-tattoo.herokuapp.com/account/signin',
+      data: { 'username': 'josefsn', 'password': '1234'}
     }).then(function (success){
       console.log(success);
       callback(success);
@@ -22,6 +23,8 @@ serviceLogin.service('usuarioService', function($http) {
 
 //--- AQUI VAI O CONTROLLER (agora mais magro)
 serviceLogin.controller('loginCtrl', function($scope, usuarioService) {
+
+  $scope.userName = 'teste';
 
   usuarioService.getStates(function(data){
     console.log('retornou');
