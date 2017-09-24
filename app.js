@@ -14,9 +14,14 @@ app.set('view engine', 'jade');
 // arquivos estaticos (html, css e etc..)
 app.use(express.static(__dirname + '/public'));
 
-app.get('/cadastrar', function(req, res){
-	res.send('olá mundo');
+app.get('/login', function (req, res) {
+   	.sendfile('/views/login.html');
 });
 
-app.listen(3000, function(){
+app.get('/login', function (req, res) {
+   	.sendfile('/views/cadastrar.html');
+});
+
+
+app.listen(8080, function(){
 });
