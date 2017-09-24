@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Enviar orcamento</title>
+		<script src="../components/angular/angular.js"></script>
+		<link rel="stylesheet" href="../css/formatacao.css">
+		<script src="../routes/routes.js"></script>
+		<script src="../javascript/controllers/cadastrar.js"></script>
+		<script src="../components/angular/angular.js"></script>
+		<script src="../components/jquery/dist/jquery.js"></script>
+		<script src="../components/angular-route/angular-route.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+		<script src="../components/bootstrap/dist/js/bootstrap.js"></script>
+	</head>
+	<body>
+
+		<nav class="navbar fixed-top navbar-dark bg-dark">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="true" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+		<!-- Brand -->
+			<div class="navbar-brand">
+				<div style="width: 100%; height: 50px;">
+					<div class="row-fluid user-row">
+						<div class="col-md-4 col-md-offset-4 alinhar">
+							<img src="../imagens/logo-domytattoo.png" class="img-responsive" alt="Logo" width="170px" style="padding-top: 8px;"/>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="navbar-header">
+					<a class="navbar-brand"></a>
+				</div>
+			</nav>
+
+		<!-- Links -->
+			<div class="collapse navbar-collapse" id="nav-content">   
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link" href="#">Perfil</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Mensagens</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Sair</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+<div style="position: absolute; width: 100%; height: 100px; top: 20%; right: 22%;">
+		<div class="main-login main-center" style = 'text-align: center; color: white;'>
+			<font size="6">Solicitar orçamento</font> 
+		</div>
+	</div>
+
+		<div class="container transparent">
+			<div style="position: absolute; width: 200%; height: 10%; top: 30%; left: 18%;">
+				<div class="row vertical-offset-100">
+					<div class="col-md-4 col-md-offset-4" style = 'background-color: #545454;'>
+						<div class="panel-body">
+									<label class="panel-login">
+										<div class="login_result"></div>
+									</label>
+
+					 				<div class="panel-heading">
+										<div class="row-fluid user-row">
+											<input class="form-control" placeholder="Tatuador" id="Tatuador" type="text" ng-model="Tatuador" style ="background-color:rgba(0,0,0,0); color: white">
+										</div>
+									</div>
+
+									<div class="panel-heading">
+										<div class="row-fluid user-row">
+											<input class="form-control" placeholder="Local" id="Local" type="text" ng-model="Local do corpo" style ="background-color:rgba(0,0,0,0); color: white">
+										</div>
+									</div>
+
+									<form class="form-inline">
+										  	<div class="col-xs-2">
+										    	<input type="text" class="form-control" id="email"
+										    	placeholder="Altura" style = "width: 414px;
+										    	background-color:rgba(0,0,0,0); color: white">
+										   		<input type="text" class="form-control" id="pwd"
+										   		placeholder="Largura" style = "width: 414px;
+										   		background-color:rgba(0,0,0,0); color: white">
+										 	</div>
+									</form>
+
+									<div class="panel-heading transparent">
+										<div class="row-fluid user-row transparent">
+											<input class="form-control resizedTextbox" placeholder="Descricao" id="Descricao" ng-model="descricao" style ="background-color:rgba(0,0,0,0); color: white">
+										</div>
+									</div>
+
+									<br></br>
+									<div class="form-group ">
+										<a style="background-color:#0c8494;" type="button" id="logingin-button" class="btn btn-primary btn-lg btn-block login-button" ng-click="cadastrar()">Enviar orçamento</a>
+									</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+					
+	</body>
+</html>

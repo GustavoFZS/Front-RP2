@@ -15,7 +15,7 @@
      // para a rota '/sobre', carregaremos o template sobre.html e o controller 'SobreCtrl'
      .when('/cadastrar', {
         templateUrl : '/views/cadastrar.html',
-        controller : 'login'
+        controller : 'cadastro'
      })
 
    }]);

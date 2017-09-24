@@ -4,8 +4,20 @@ body {
   background-size: 100%;
   color: white;
   background-attachment: fixed;
-};
+}
 
 .alinhar .img-responsive {
     margin: 0 auto;
-};
+}
+
+.navbar-header {
+    float: left;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+}
+
+.navbar-brand {float:none;}
+
+.resizedTextbox {width: 10px; height: 100px}
+

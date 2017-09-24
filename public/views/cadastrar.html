@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html ng-app="login">
+<html ng-app="cadastro">
 	<head
 		<meta charset="UTF-8">
-		<title>Document</title>
+		<title>Cadastro</title>
 		<link rel="stylesheet" href="../components/bootstrap/dist/css/bootstrap.css">
 		<script src="../components/angular/angular.js"></script>
 		<link rel="stylesheet" href="../css/formatacao.css">
 		<script src="../routes/routes.js"></script>
-		<script src="../javascript/controllers/login.js"></script>
+		<script src="../javascript/controllers/cadastrar.js"></script>
 	</head>
-	<body>
+	<body ng-controller="cadastroCtrl">
 		<div class="container transparent">
 			<div style="position: absolute; width: 100%; height: 116px; top: 5%; left: 0;">
 				<div class="row vertical-offset-100">
@@ -36,32 +36,47 @@
 
 									<div class="panel-heading">
 										<div class="row-fluid user-row">
-											<input class="form-control" placeholder="Nome" id="Nome" type="text">
+											<input class="form-control" placeholder="Nome" id="Nome" type="text" ng-model="name">
+										</div>
+									</div>
+
+									<div class="panel-heading">
+										<div class="row-fluid user-row">
+											<input class="form-control" placeholder="Nome de usuario" id="NomeUsuario" type="text" ng-model="user">
 										</div>
 									</div>
 
 									<div class="panel-heading transparent">
 										<div class="row-fluid user-row transparent">
-											<input class="form-control" placeholder="E-mail" id="E-mail" type="text" >
+											<input class="form-control" placeholder="E-mail" id="E-mail" type="text" ng-model="email">
 										</div>
 									</div>
 
 									<div class="panel-heading transparent">
 										<div class="row-fluid user-row transparent">
-											<input class="form-control" placeholder="Telefone" id="Telefone" type="text" >
+											<input class="form-control" placeholder="Telefone" id="Telefone" type="text" ng-model="phone">
+											<label class="form-check-input"><input type="checkbox" value="" ng-model="what">Whatsapp</label>
+										</div>
+									</div>
+
+									<div class="panel-heading">
+										<div class="row-fluid user-row">
+											<input class="form-control" placeholder="Instagram" id="instagram" type="text"
+											ng-model="instagram">
+										</div>
+									</div>
+
+
+									<div class="panel-heading transparent">
+										<div class="row-fluid user-row transparent">
+											<input class="form-control" placeholder="Senha" id="Senha" type="password" 
+											ng-model="password">
 										</div>
 									</div>
 
 									<div class="panel-heading transparent">
 										<div class="row-fluid user-row transparent">
-											<input class="form-control" placeholder="Senha" id="Senha" type="password" >
-										</div>
-									</div>
-
-
-									<div class="panel-heading transparent">
-										<div class="row-fluid user-row transparent">
-											<input class="form-control" placeholder="Confirme sua senha" id="Senha2" type="password" >
+											<input class="form-control" placeholder="Confirme sua senha" id="Senha2" type="password" ng-model="password2">
 										</div>
 									</div>
 
@@ -71,16 +86,16 @@
 
 									<form class="form-check form-check-inline">
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> Cliente
+									    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="true" ng-model="type"> Cliente
 									  </label>
 									  <label class="form-check-label">
-									    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Tatuador
+									    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="false" ng-model="type"> Tatuador
 									  </label>
 									</form>
 
 									<br></br>
 									<div class="form-group ">
-										<a style="background-color:#0c8494;" href="responder_orcamento.html" type="button" id="logingin-button" class="btn btn-primary btn-lg btn-block login-button">Cadastre-se</a>
+										<a style="background-color:#0c8494;" type="button" id="logingin-button" class="btn btn-primary btn-lg btn-block login-button" ng-click="cadastrar()">Cadastre-se</a>
 									</div>
 
 								</fieldset>
@@ -90,6 +105,7 @@
 				</div>
 			</div>
 		</div>
+		<script src="../components/angular/angular.js"></script>
 		<script src="../components/jquery/dist/jquery.js"></script>
 		<script src="../components/angular-route/angular-route.js"></script>
 		<script src="../components/bootstrap/dist/js/bootstrap.js"></script>
