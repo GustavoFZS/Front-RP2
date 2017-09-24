@@ -9,13 +9,13 @@
      // para a rota '/', carregaremos o template home.html e o controller 'HomeCtrl'
      .when('/login', {
         templateUrl : '/views/login.html',
-        controller : 'login'
+        controller : 'loginCtrl'
      })
 
      // para a rota '/sobre', carregaremos o template sobre.html e o controller 'SobreCtrl'
      .when('/cadastrar', {
         templateUrl : '/views/cadastrar.html',
-        controller : 'cadastro'
+        controller : 'cadastroCtrl'
      })
 
    }]);

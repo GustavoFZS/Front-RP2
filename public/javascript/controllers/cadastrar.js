@@ -1,18 +1,27 @@
-var serviceCadastro = angular.module('cadastro', []);
+var serviceCadastro = angular.module('DoMyTattoo');
 
 serviceCadastro.service('cadastroService', function($http) {
   // privado
   var message = {};
 
-  this.getCadastro = function(name, user, email, phone, what, 
+  this.getCadastro = function(name, user, email, phone, what,
   instagram, password, type, callback) {
 
     $http({
       method: 'POST',
       url: 'https://do-my-tattoo.herokuapp.com/account/signup',
-      data: { 'email': email, 'userName': user, 'password': password,
-      'name': name, 'isCostumer': type, 'phone': {'number': phone,
-      'whatsapp': what}, 'instagram': instagram}
+      data: {
+        'email': email,
+        'userName': user,
+        'password': password,
+        'name': name,
+        'isCostumer': type,
+        'phone': {
+          'number': phone,
+          'whatsapp': what
+        },
+        'instagram': instagram
+      }
     }).then(function (success){
 
       console.log(success);

@@ -1,4 +1,4 @@
-var serviceLogin = angular.module('login', []);
+var serviceLogin = angular.module('DoMyTattoo');
 
 serviceLogin.service('usuarioService', function($http) {
   // privado
@@ -9,7 +9,11 @@ serviceLogin.service('usuarioService', function($http) {
     $http({
       method: 'POST',
       url: 'https://do-my-tattoo.herokuapp.com/account/signin',
-      data: { 'email': user, 'username': user, 'password': password}
+      data: {
+        'email': user,
+        'username': user,
+        'password': password
+      }
     }).then(function (success){
 
       console.log(success);
