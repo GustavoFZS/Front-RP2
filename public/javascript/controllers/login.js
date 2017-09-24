@@ -4,34 +4,43 @@ serviceLogin.service('usuarioService', function($http) {
   // privado
   var message = {};
 
-  this.getUsuarios = function($scope, callback) {
+  this.getUsuarios = function(user, password, callback) {
 
     $http({
       method: 'POST',
       url: 'https://do-my-tattoo.herokuapp.com/account/signin',
-      data: { 'username': '', 'password': ''}
+      data: { 'email': user, 'username': user, 'password': password}
     }).then(function (success){
+
       console.log(success);
-      callback(success);
+      callback(success, true);
     },function (error){
       console.log(error);
-      callback(error);
+      callback(error, false);
     });
-    
+
   };
 });
 
 //--- AQUI VAI O CONTROLLER (agora mais magro)
-serviceLogin.controller('loginCtrl', function(, usuarioService) {
+serviceLogin.controller('loginCtrl', function($scope, usuarioService) {
 
-  usuarioService.getUsuarios(function($scope, data){
-    console.log('retornou');
-    $scope.message = data;
-  
-  if ($scope.message.message == 'Usuário não encontrado!') {
-    console.log('entro');
-  }
+  $scope.user = ""; //pode ser email ou userName
+  $scope.password = "";
 
-  });
+  $scope.login = function(){
+    usuarioService.getUsuarios($scope.user, $scope.password, function(data, success){
+      console.log('retornou');
+
+      if(success) {
+        console.log('sucesso');
+      }
+      else {
+        console.log('deu ruim');
+      }
+
+    });
+  };
+
 
 });
