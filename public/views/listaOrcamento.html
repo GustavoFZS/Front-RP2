@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html ng-app="DoMyTattoo">
+<head>
+    <title>Orçamento</title>
+    <style>
+   
+        .card {
+            display: flex;
+            border: 2px solid green;
+            height: 200px;
+            width: 90%;
+            margin: 0 auto;
+        }
+       
+        .photoCard{
+            display: inline-block;
+            height: 100%;
+            width: 40%;
+            border: 2px solid red;
+            overflow: hidden;
+            position:relative;
+        }
+ 
+        .photoCard img {
+            position: absolute;
+            top: -9999px;
+            left: -9999px;
+            right: -9999px;
+            bottom: -9999px;
+            margin: auto;
+        }
+ 
+        .descCard{
+            display: inline-block;
+            padding-left: 10px;
+            border: 2px solid blue;
+            height: 100%;
+            width: 60%;
+            position: relative;
+        }
+ 
+        .priceDiv {
+            border: 2px solid gray;
+            float: right;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+ 
+        .titleOrder{
+            font-size: 30px;
+            font-weight: 600;
+        }
+ 
+        .descOrder{
+            font-size: 20px;
+            font-weight: 400;
+        }
+ 
+        .sizeOrder {
+            font-size: 20px;
+            font-weight: 400;
+        }
+ 
+    </style>
+</head>
+ 
+<body>
+ 
+ 
+    <div class="card">
+        <div class="photoCard">
+            <img src="https://tattooblend.com/wp-content/uploads/2016/04/sketch-style-tattoo-design-7.jpg">
+        </div>
+        <div class="descCard">
+            <br>
+            <span class="titleOrder">Título</span>
+            <br>
+            <span class="descOrder">Descrição</span>
+            <br>
+            <span class="sizeOrder">Tamanho</span>
+            <br>
+ 
+            <div class="priceDiv">
+                Preço: <input type="number" name=""/> <button type="submit"> Enviar </button>
+            </div>
+ 
+        </div>
+    </div>
+ 
+ 
+ 
+</body>
+</html>

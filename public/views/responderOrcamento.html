@@ -1,20 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="DoMyTattoo">
 	<head>
 		<meta charset="UTF-8">
 		<title>Enviar orcamento</title>
-		<script src="../components/angular/angular.js"></script>
 		<link rel="stylesheet" href="../css/formatacao.css">
-		<script src="../routes/routes.js"></script>
-		<script src="../javascript/controllers/cadastrar.js"></script>
-		<script src="../components/angular/angular.js"></script>
-		<script src="../components/jquery/dist/jquery.js"></script>
-		<script src="../components/angular-route/angular-route.js"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
 		<script src="../components/bootstrap/dist/js/bootstrap.js"></script>
 	</head>
-	<body>
-
+	
+	<body ng-controller="cadastroCtrl">
 		<nav class="navbar fixed-top navbar-dark bg-dark">
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="true" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -101,7 +95,7 @@
 
 									<div class="panel-heading transparent">
 										<div class="row-fluid user-row transparent">
-											<input class="form-control resizedTextbox" placeholder="Descricao" id="Descricao" ng-model="descricao" style ="background-color:rgba(0,0,0,0); color: white">
+											<input class="form-control resizedTextbox" placeholder="cometario" id="cometario" ng-model="cometario" style ="background-color:rgba(0,0,0,0); color: white">
 										</div>
 									</div>
 

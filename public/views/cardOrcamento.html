@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="DoMyTattoo">
+<head>
+    <title>Orçamento</title>
+    <link rel="stylesheet" href="../css/formatacao.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+    <script src="../components/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+ 
+<body ng-controller="listaCtrl">
+
+                    Preço: <input type="number" name=""/> <button type="submit" ng-click='listar()'> Enviar </button>
+ 
+ <div ng-repeat="orcamento in lista">
+
+        <div>
+            <img src='{{orcamento.url}}'>
+        </div>
+        <div class="descCard">
+            <br>
+            <input class="titleOrder" value='{{orcamento.place}}'>Título</span>
+            <br>
+            <input class="descOrder" value={{orcamento.place}}>Descrição</span>
+            <br>
+            <input class="sizeOrder">Tamanho</span>
+            <br>
+ {{orcamento}}
+            <div class="priceDiv">
+                Preço: <input type="number" name=""/> <button type="submit" ng-click='listar()'> Enviar </button>
+            </div>
+ 
+        </div>
+    </div>
+   </div>
+ 
+ 
+</body>
+</html>

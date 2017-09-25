@@ -38,7 +38,7 @@ serviceCadastro.service('cadastroService', function($http) {
 });
 
 //--- AQUI VAI O CONTROLLER (agora mais magro)
-serviceCadastro.controller('cadastroCtrl', function($scope, cadastroService) {
+serviceCadastro.controller('cadastroCtrl', function($scope, $rootScope, $location, cadastroService) {
 
   $scope.name = "";
   $scope.user = "";
@@ -49,6 +49,7 @@ serviceCadastro.controller('cadastroCtrl', function($scope, cadastroService) {
   $scope.password = "";
   $scope.password2 = "";
   $scope.type = "";
+  $rootScope.usuario = "";
 
   $scope.cadastrar = function(){
     cadastroService.getCadastro($scope.name, $scope.user, $scope.email, $scope.phone,
@@ -57,10 +58,11 @@ serviceCadastro.controller('cadastroCtrl', function($scope, cadastroService) {
 
       if(success) {
         console.log('sucesso');
+        $rootScope.usuario = $scope;
+        $location.path('login'); // path not hash
       }
       else {
-        console.log('nome' + $scope.name+ ' usuario: ' +$scope.user+ ' email: ' +$scope.email+ ' fone: ' +$scope.phone+
-    ' zap: ' + $scope.what+ ' insta: ' + $scope.instagram + '  senha: ' +$scope.password+ ' isConstumer ' +$scope.type);
+        console.log('merda deu');
       }
 
     });

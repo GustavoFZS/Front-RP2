@@ -18,17 +18,16 @@
         controller : 'cadastroCtrl'
      })
 
+     .when('/enviar_orcamento', {
+        templateUrl : '/views/enviarOrcamento.html',
+        controller : 'orcamentoCtrl'
+     })
+
+          .when('/lista_orcamento', {
+        templateUrl : '/views/cardOrcamento.html',
+        controller : 'listaCtrl'
+     })
+
    }]);
-
-      //--- AQUI VAI O CONTROLLER (agora mais magro)
-   routesCtrl.controller('Cntrl', function($scope, $location) {
-
-      function Cntrl ($scope,$location) {
-           $scope.changeView = function(view){
-               $location.path(view); // path not hash
-           }
-       }
-
-   });
 
 })(angular);
