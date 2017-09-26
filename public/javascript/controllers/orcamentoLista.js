@@ -49,5 +49,15 @@ serviceLista.controller('listaCtrl', function($scope, $rootScope, $location, lis
 
     });
   };
+
+  $scope.detalhes = function(orcamento){
+
+    $rootScope.orcamento = orcamento;
+    console.log($rootScope.orcamento);
+    $location.path('responder_orcamento'); // path not hash
+
+  };
+
+  $scope.listar();
   
 });

@@ -34,7 +34,7 @@ serviceLogin.controller('loginCtrl', function($scope, $rootScope, $location, usu
 
   if($rootScope.usuario != null){
 
-    $scope.user = $rootScope.usuario.name; //pode ser email ou userName
+    $scope.user = $rootScope.usuario.userName; //pode ser email ou userName
     $scope.password = $rootScope.usuario.password;
 
   }

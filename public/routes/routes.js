@@ -23,6 +23,11 @@
         controller : 'orcamentoCtrl'
      })
 
+    .when('/responder_orcamento', {
+        templateUrl : '/views/responderOrcamento.html',
+        controller : 'orcamentoCtrl'
+     })
+
           .when('/lista_orcamento', {
         templateUrl : '/views/cardOrcamento.html',
         controller : 'listaCtrl'

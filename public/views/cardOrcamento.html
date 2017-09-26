@@ -1,38 +1,79 @@
 <!DOCTYPE html>
 <html ng-app="DoMyTattoo">
-<head>
+  <head>
     <title>Orçamento</title>
+    <link rel="stylesheet" href="../css/card.css">
     <link rel="stylesheet" href="../css/formatacao.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
     <script src="../components/bootstrap/dist/js/bootstrap.js"></script>
-</head>
- 
-<body ng-controller="listaCtrl">
+  </head>
 
-                    Preço: <input type="number" name=""/> <button type="submit" ng-click='listar()'> Enviar </button>
- 
- <div ng-repeat="orcamento in lista">
+  <body ng-controller="listaCtrl">
 
-        <div>
-            <img src='{{orcamento.url}}'>
+    <nav class="navbar fixed-top navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <img src="../imagens/logo-domytattoo.png" class="img-responsive" alt="Logo" width="170px" style="padding-top: 8px;"/>
+
+      <font size="3" style="color: white">{{usuario.name}}</font>
+
+        <div class="collapse navbar-collapse" id="nav-content">   
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Perfil</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Mensagens</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Sair</a>
+            </li>
+          </ul>
         </div>
-        <div class="descCard">
-            <br>
-            <input class="titleOrder" value='{{orcamento.place}}'>Título</span>
-            <br>
-            <input class="descOrder" value={{orcamento.place}}>Descrição</span>
-            <br>
-            <input class="sizeOrder">Tamanho</span>
-            <br>
- {{orcamento}}
-            <div class="priceDiv">
-                Preço: <input type="number" name=""/> <button type="submit" ng-click='listar()'> Enviar </button>
-            </div>
- 
-        </div>
+    </nav>
+
+    <div style="position: absolute; width: 100%; height: 100px; top: 20%; right: 22%;">
+      <div class="main-login main-center" style = 'text-align: center; color: white;'>
+        <font size="6">Lista de orçamentos</font> 
+      </div>
     </div>
-   </div>
- 
- 
-</body>
+
+    <div class="container transparent">
+      <div style="position: absolute; width: 200%; height: 10%; top: 30%; left: 18%;">
+        <div class="row vertical-offset-100">
+          <div class="col-md-4 col-md-offset-4" style = 'background-color: #545454;'>
+            <div class="panel-body">
+              <div ng-repeat="orcamento in lista">
+                <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+                  <div class='container' style = 'background-color: #545454;'>
+                    <div class='list-card'>
+                      <div class='list-label'>Novo orçamento</div>
+                        <img alt='' src={{orcamento.images[0].url}}>
+                        <div class='list-details'>
+                          <div class='list-name' style='color: white;'>Tatuador: {{orcamento.negotiations[0].tattooArtist.name}}</div>
+                          <div class='list-text' style='font-size: 12px;'>Local do corpo: {{orcamento.place}}</div>
+                          <div class='list-text' style='font-size: 12px;'>Altura: {{orcamento.size.height}}</div>
+                          <div class='list-text' style='font-size: 12px;'>Largura: {{orcamento.size.width}}</div>
+                          <div class="form-row">
+                          <label class='list-text2' style='color: white; font-size: 16px;' for="valor">Valor do orçamento: </label>
+                          <div class="input-group"> 
+                            <span class="input-group-addon">R$</span>
+                            <input type="number" value="100" min="0" step="10" data-number-to-fixed="2" data-number-stepfactor="100" class="button-g" id="valor" style='margin-right: 5px;'/>
+                            <input class="btn btn-primary" style="background-color:#0c8494;  margin-right: 5px;" type="button" value="Responder">
+                            <input class="btn btn-primary" style="background-color:#0c8494;  margin-right: 5px;" type="button" value="Detalhes" ng-click="detalhes(orcamento)">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
