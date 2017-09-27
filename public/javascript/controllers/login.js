@@ -47,7 +47,7 @@ serviceLogin.controller('loginCtrl', function($scope, $rootScope, $location, usu
 
         console.log('sucesso' + response.data + ' ' + response.data._id + '');
         $rootScope.usuario = response.data;
-        $location.path('lista_orcamento');
+        $location.path('pesquisa');
 
       }
       else {

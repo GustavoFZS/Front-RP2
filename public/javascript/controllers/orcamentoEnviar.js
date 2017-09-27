@@ -5,7 +5,7 @@ serviceOrcamento.service('orcamentoService', function($http) {
   var message = {};
 
   this.getOrcamento = function(idCliente, myArray, tatuador, local, altura, 
-      largura, descricao, callback) {
+      largura, descricao, tatuadorId, callback) {
 
     $http({
       method: 'POST',
@@ -27,7 +27,14 @@ serviceOrcamento.service('orcamentoService', function($http) {
         'size': {
           'height': altura,
           'width': largura
-        }
+        },
+        'negotiations': [
+          {
+            "tattooArtist": {
+              '_id': tatuadorId
+            }
+          }
+        ]    
       }
     }).then(function (success){
 
@@ -54,13 +61,16 @@ serviceOrcamento.controller('orcamentoCtrl', function($scope, $rootScope, $locat
   $scope.largura = '';
   $scope.descricao = '';
 
+  $scope.tatuador = $rootScope.tatuador.userName;
+  $scope.tatuadorId = $rootScope.tatuador._id;
+
   var myArray = new Array();
 
   myArray.push("https://fotostatuagens.com/wp-content/uploads/2016/07/Tatuagens-de-Onda.jpg");
 
   $scope.enviar = function(){
     orcamentoService.getOrcamento($scope.idCliente, myArray, $scope.tatuador, $scope.local, $scope.altura, 
-      $scope.largura, $scope.descricao, function(data, success){
+      $scope.largura, $scope.descricao, $scope.tatuadorId, function(data, success){
 
       console.log('retornou');
 

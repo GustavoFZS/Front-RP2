@@ -5,7 +5,7 @@ serviceCadastro.service('cadastroService', function($http) {
   var message = {};
 
   this.getCadastro = function(name, user, email, phone, what,
-  instagram, password, type, callback) {
+  instagram, password, tipo, callback) {
 
     $http({
       method: 'POST',
@@ -15,7 +15,7 @@ serviceCadastro.service('cadastroService', function($http) {
         'userName': user,
         'password': password,
         'name': name,
-        'isCostumer': type,
+        'isCostumer': tipo,
         'phone': {
           'number': phone,
           'whatsapp': what
@@ -48,12 +48,14 @@ serviceCadastro.controller('cadastroCtrl', function($scope, $rootScope, $locatio
   $scope.what = "";
   $scope.password = "";
   $scope.password2 = "";
-  $scope.type = "";
+  $scope.tipo = "";
   $rootScope.usuario = "";
+
+  console.log($scope.tipo);
 
   $scope.cadastrar = function(){
     cadastroService.getCadastro($scope.name, $scope.user, $scope.email, $scope.phone,
-    $scope.what, $scope.instagram, $scope.password,  $scope.type, function(data, success){
+    $scope.what, $scope.instagram, $scope.password,  $scope.tipo, function(data, success){
       console.log('retornou');
 
       if(success) {

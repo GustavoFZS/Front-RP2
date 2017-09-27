@@ -28,9 +28,19 @@
         controller : 'orcamentoCtrl'
      })
 
-          .when('/lista_orcamento', {
+    .when('/lista_orcamento', {
         templateUrl : '/views/cardOrcamento.html',
         controller : 'listaCtrl'
+     })
+    
+    .when('/pesquisa', {
+        templateUrl : '/views/pesquisa.html',
+        controller : 'pesquisaCtrl'
+     })
+
+    .when('/resultado', {
+        templateUrl : '/views/listaTatuadores.html',
+        controller : 'listaTatuadorCtrl'
      })
 
    }]);
