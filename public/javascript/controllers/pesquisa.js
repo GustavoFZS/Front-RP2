@@ -5,6 +5,8 @@ servicePesquisa.controller('pesquisaCtrl', function($scope, $rootScope, $locatio
 
   $scope.idCliente = $rootScope.usuario._id;
 
+  $scope.tatuador = "";
+
   $scope.chamaPesquisa = function(){
 
     $rootScope.tatuador = $scope.tatuador;
@@ -12,5 +14,9 @@ servicePesquisa.controller('pesquisaCtrl', function($scope, $rootScope, $locatio
     $location.path('resultado'); // path not hash
 
   };
+  
+    $scope.goPagina = function(view){
+        $location.path(view); // path not hash
+    };
   
 });

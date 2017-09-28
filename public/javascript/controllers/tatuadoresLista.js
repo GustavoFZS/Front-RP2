@@ -52,12 +52,17 @@ serviceTatuadorLista.controller('listaTatuadorCtrl', function($scope, $rootScope
 
   $scope.solicitar = function(tatuador){
 
+    console.log(tatuador);
     $rootScope.tatuador = tatuador;
-    console.log($rootScope.tatuador);
     $location.path('enviar_orcamento'); // path not hash
 
   };
 
   $scope.listar();
+
+    $scope.goPagina = function(view){
+        $location.path(view); // path not hash
+    };
+
   
 });

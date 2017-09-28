@@ -14,14 +14,7 @@ serviceOrcamento.service('orcamentoService', function($http) {
         'customer': idCliente,
         'place': local,
         "images": [
-            {
-                "url": "http://img.izismile.com/img/img4/20110816/640/20_epic_tramp_stamp_tattoos_640_06.jpg",
-                "_id": "59c5e26e4b904e3b105bc3b4"
-            },
-            {
-                "url": "http://www.artenocorpo.com/sites/www.artenocorpo.com/files/tatuagens-de-bocas-9.jpg",
-                "_id": "59c5e26e4b904e3b105bc3b3"
-            }
+
         ],
         'description': descricao,
         'size': {
@@ -31,6 +24,7 @@ serviceOrcamento.service('orcamentoService', function($http) {
         'negotiations': [
           {
             "tattooArtist": {
+              'userName' : tatuador,
               '_id': tatuadorId
             }
           }
@@ -55,28 +49,21 @@ serviceOrcamento.service('orcamentoService', function($http) {
 serviceOrcamento.controller('orcamentoCtrl', function($scope, $rootScope, $location, orcamentoService) {
 
   $scope.idCliente = $rootScope.usuario._id;
-  $scope.tatuador = '';
-  $scope.local = '';
-  $scope.altura = '';
-  $scope.largura = '';
-  $scope.descricao = '';
 
-  $scope.tatuador = $rootScope.tatuador.userName;
-  $scope.tatuadorId = $rootScope.tatuador._id;
+  $scope.tatuador = $rootScope.tatuador;
 
   var myArray = new Array();
 
   myArray.push("https://fotostatuagens.com/wp-content/uploads/2016/07/Tatuagens-de-Onda.jpg");
 
   $scope.enviar = function(){
-    orcamentoService.getOrcamento($scope.idCliente, myArray, $scope.tatuador, $scope.local, $scope.altura, 
-      $scope.largura, $scope.descricao, $scope.tatuadorId, function(data, success){
+    orcamentoService.getOrcamento($scope.idCliente, myArray, $rootScope.tatuador.userName, $scope.local, $scope.altura, 
+      $scope.largura, $scope.descricao, $rootScope.tatuador._id, function(data, success){
 
       console.log('retornou');
 
       if(success) {
         console.log('sucesso');
-        $rootScope.orcamento = $scope;
       }
       else {
         console.log('merda deu ' + $scope.idCliente._id);
@@ -85,5 +72,8 @@ serviceOrcamento.controller('orcamentoCtrl', function($scope, $rootScope, $locat
     });
   };
 
+    $scope.goPagina = function(view){
+        $location.path(view); // path not hash
+    };
 
 });

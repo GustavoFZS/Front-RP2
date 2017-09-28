@@ -46,8 +46,20 @@ serviceLogin.controller('loginCtrl', function($scope, $rootScope, $location, usu
       if(success) {
 
         console.log('sucesso' + response.data + ' ' + response.data._id + '');
+
         $rootScope.usuario = response.data;
-        $location.path('pesquisa');
+
+        if(response.data.isCustomer){
+
+          $location.path('pesquisa');
+          $rootScope.tipoUsuario = true;
+
+        } else {
+
+          $location.path('lista_orcamento');
+          $rootScope.tipoUsuario = false;
+
+        }
 
       }
       else {

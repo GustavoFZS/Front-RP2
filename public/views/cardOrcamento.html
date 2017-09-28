@@ -10,28 +10,20 @@
 
   <body ng-controller="listaCtrl">
 
-    <nav class="navbar fixed-top navbar-dark bg-dark">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
       <img src="../imagens/logo-domytattoo.png" class="img-responsive" alt="Logo" width="170px" style="padding-top: 8px;"/>
-
-      <font size="3" style="color: white">{{usuario.name}}</font>
-
-        <div class="collapse navbar-collapse" id="nav-content">   
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Perfil</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Mensagens</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Sair</a>
-            </li>
-          </ul>
-        </div>
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active" ng-if="tipoUsuario">
+            <input type="button" class="btn btn-link" ng-click="goPagina('pesquisa')" style="font-size: 16px; color: white;" value="Home" />
+          </li>
+          <li class="nav-item active">
+            <input type="button" class="btn btn-link" ng-click="goPagina('lista_orcamento')" style="font-size: 16px; color: white;" value="Orçamentos" />
+            <input type="button" class="btn btn-link" ng-click="goPagina('login')" style="font-size: 16px; color: white;" value="Sair" />
+          </li>
+        </ul>
+        <font size="3" style="color: white">{{usuario.name}}</font>
+      </div>
     </nav>
 
     <div style="position: absolute; width: 100%; height: 100px; top: 20%; right: 22%;">
@@ -59,9 +51,9 @@
                           <div class="form-row">
                           <label class='list-text2' style='color: white; font-size: 16px;' for="valor">Valor do orçamento: </label>
                           <div class="input-group"> 
-                            <span class="input-group-addon">R$</span>
-                            <input type="number" value="100" min="0" step="10" data-number-to-fixed="2" data-number-stepfactor="100" class="button-g" id="valor" style='margin-right: 5px;'/>
-                            <input class="btn btn-primary" style="background-color:#0c8494;  margin-right: 5px;" type="button" value="Responder">
+                            <span class="input-group-addon" ng-if="!tipoUsuario">R$</span>
+                            <input type="number" value="100" min="0" step="10" data-number-to-fixed="2" data-number-stepfactor="100" class="button-g" id="valor" style='margin-right: 5px;' ng-if="!tipoUsuario"/>
+                            <input class="btn btn-primary" style="background-color:#0c8494;  margin-right: 5px;" type="button" value="Responder" ng-if="!tipoUsuario">
                             <input class="btn btn-primary" style="background-color:#0c8494;  margin-right: 5px;" type="button" value="Detalhes" ng-click="detalhes(orcamento)">
                           </div>
                         </div>

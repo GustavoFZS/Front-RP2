@@ -2,13 +2,13 @@
 <html ng-app="DoMyTattoo">
 	<head>
 		<meta charset="UTF-8">
-		<title>Enviar orcamento</title>
+		<title>Editar orcamento</title>
 		<link rel="stylesheet" href="../css/formatacao.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
 		<script src="../components/bootstrap/dist/js/bootstrap.js"></script>
 	</head>
 
-	<body ng-controller="orcamentoCtrl">
+	<body ng-controller="detalhesCtrl">
 
 		<nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
 			<img src="../imagens/logo-domytattoo.png" class="img-responsive" alt="Logo" width="170px" style="padding-top: 8px;"/>
@@ -28,7 +28,7 @@
 
 <div style="position: absolute; width: 100%; height: 100px; top: 20%; right: 22%;">
 		<div class="main-login main-center" style = 'text-align: center; color: white;'>
-			<font size="6">Solicitar orçamento</font> 
+			<font size="6">Editar orçamento</font> 
 		</div>
 	</div>
 
@@ -43,31 +43,41 @@
 
 		 						<div class="panel-heading">
 									<div class="row-fluid user-row">
-										<input class="form-control" value = {{tatuador.userName}} id="Tatuador" type="text" style ="background-color:rgba(0,0,0,0.5); color: white" disabled>
+										<input class="form-control" value = {{tatuador.name}} id="tatuador" type="text" style ="background-color:rgba(0,0,0,0.5); color: white" disabled>
 									</div>
 								</div>
 
-								<form class="form-inline">
-								  	<div class="col-xs-2">
-								  		<input class="form-control" id="Local do corpo" type="text" style ="width: 274px; color: white;background-color:rgba(0,0,0,0);"
-								  		 ng-model="local" placeholder="Local do corpo">
-								    	<input type="text" class="form-control" id="altura" style = "width: 275px;
-								    	color: white; background-color:rgba(0,0,0,0); " ng-model="altura" placeholder="Altura">
-								   		<input type="text" class="form-control" id="largura" style = "width: 275px;
-								   		color: white; background-color:rgba(0,0,0,0); " ng-model="largura"
-								   		placeholder="Largura">
-								 	</div>
-								</form>
+									<form class="form-inline">
+									  	<div class="col-xs-2">
+									  		<input class="form-control" id="Local do corpo" type="text" value = {{orcamento.place}} style ="width: 274px; background-color:rgba(0,0,0,0); color: white">
+									    	<input type="text" class="form-control" id="email" value={{orcamento.size.height}} style = "width: 275px;
+									    	background-color:rgba(0,0,0,0); color: white">
+									   		<input type="text" class="form-control" id="pwd" value = {{orcamento.size.width}} style = "width: 275px;
+									   		background-color:rgba(0,0,0,0); color: white">
+									 	</div>
+									</form>
 
-								<div class="panel-heading transparent">
-									<div class="row-fluid user-row transparent">
-										<input class="form-control resizedTextbox" id="descricao" style ="color: white; background-color:rgba(0,0,0,0); " ng-model="descricao" placeholder="Descrição">
+									<div class="panel-heading transparent">
+										<div class="row-fluid user-row transparent">
+											<input class="form-control resizedTextbox" id="Descricao" value={{orcamento.description}} style ="background-color:rgba(0,0,0,0); color: white">
+										</div>
 									</div>
-								</div>
 
+									<div class="panel-heading">
+										<div class="row-fluid user-row">
+											<input class="form-control" placeholder="Valor" id="Valor" type="text" ng-model="orcamento.negotiations[0].price" style ="background-color:rgba(0,0,0,0.5); color: white" disabled>
+										</div>
+									</div>
+
+<!--									<div class="panel-heading transparent">
+										<div class="row-fluid user-row transparent">
+											<input class="form-control resizedTextbox" placeholder="cometario" id="cometario" ng-model="cometario" style ="background-color:rgba(0,0,0,0.5); color: white" disabled>
+										</div>
+									</div>
+-->
 							<br></br>
 							<div class="form-group ">
-								<a style="background-color:#0c8494;" type="button" id="logingin-button" class="btn btn-primary btn-lg btn-block login-button" ng-click="enviar()">Enviar orçamento</a>
+								<a style="background-color:#0c8494;" type="button" id="logingin-button" class="btn btn-primary btn-lg btn-block login-button" ng-click="enviar()">Editar orçamento</a>
 							</div>
 						</div>
 					</div>

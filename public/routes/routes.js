@@ -25,7 +25,12 @@
 
     .when('/responder_orcamento', {
         templateUrl : '/views/responderOrcamento.html',
-        controller : 'orcamentoCtrl'
+        controller : 'detalhesCtrl'
+     })
+
+     .when('/editar_orcamento', {
+        templateUrl : '/views/editarOrcamento.html',
+        controller : 'detalhesCtrl'
      })
 
     .when('/lista_orcamento', {

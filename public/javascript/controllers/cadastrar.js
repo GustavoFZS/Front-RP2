@@ -7,6 +7,8 @@ serviceCadastro.service('cadastroService', function($http) {
   this.getCadastro = function(name, user, email, phone, what,
   instagram, password, tipo, callback) {
 
+    console.log(tipo + " teste");
+
     $http({
       method: 'POST',
       url: 'https://do-my-tattoo.herokuapp.com/account/signup',
@@ -15,7 +17,7 @@ serviceCadastro.service('cadastroService', function($http) {
         'userName': user,
         'password': password,
         'name': name,
-        'isCostumer': tipo,
+        'isCustomer': tipo,
         'phone': {
           'number': phone,
           'whatsapp': what
@@ -42,7 +44,7 @@ serviceCadastro.controller('cadastroCtrl', function($scope, $rootScope, $locatio
 
   $scope.name = "";
   $scope.user = "";
-  $scope.email = "";
+  $scope.email = "@gmail.com";
   $scope.instagram = "";
   $scope.phone = "";
   $scope.what = "";
@@ -54,8 +56,19 @@ serviceCadastro.controller('cadastroCtrl', function($scope, $rootScope, $locatio
   console.log($scope.tipo);
 
   $scope.cadastrar = function(){
+
+    if($scope.tipo == 0){
+
+      $scope.tipoFt = false;
+
+    } else {
+
+      $scope.tipoFt = true;
+
+    }
+
     cadastroService.getCadastro($scope.name, $scope.user, $scope.email, $scope.phone,
-    $scope.what, $scope.instagram, $scope.password,  $scope.tipo, function(data, success){
+    $scope.what, $scope.instagram, $scope.password,  $scope.tipoFt, function(data, success){
       console.log('retornou');
 
       if(success) {

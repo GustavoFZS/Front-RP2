@@ -27,14 +27,20 @@
 	</head>
 	<body ng-controller="pesquisaCtrl">
 
-		<nav class="navbar fixed-top navbar-dark bg-dark">
-	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
-	        <span class="navbar-toggler-icon"></span>
-	      </button>
-
-	      <font size="3" style="color: white">{{usuario.name}}</font>
-
-	    </nav>
+		<nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active" ng-if="tipoUsuario">
+						<input type="button" class="btn btn-link" ng-click="goPagina('pesquisa')" style="font-size: 16px; color: white;" value="Home" />
+					</li>
+					<li class="nav-item active">
+						<input type="button" class="btn btn-link" ng-click="goPagina('lista_orcamento')" style="font-size: 16px; color: white;" value="Orçamentos" />
+						<input type="button" class="btn btn-link" ng-click="goPagina('login')" style="font-size: 16px; color: white;" value="Sair" />
+					</li>
+				</ul>
+				<font size="3" style="color: white">{{usuario.name}}</font>
+			</div>
+		</nav>
 
 		<div style="position: absolute; width: 100%; height: 116px; top: 30%; left: 0;">
 			<div class="row vertical-offset-100">
@@ -60,7 +66,7 @@
 			        <div class="col-sm-6 col-sm-offset-3">
 			            <div id="imaginary_container"> 
 			                <div class="input-group stylish-input-group">
-			                    <input type="text" class="form-control" placeholder="Pesquisar" ng-model="tatuador" >
+			                    <input type="text" class="form-control" placeholder="Pesquisar" ng-model="tatuador" ng-start="">
 			                    <span class="input-group-addon">
 			                        <button type="submit" ng-click="chamaPesquisa()">
 			                            <span class="glyphicon glyphicon-search"></span>
