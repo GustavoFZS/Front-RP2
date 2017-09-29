@@ -28,7 +28,7 @@
 
     <div style="position: absolute; width: 100%; height: 100px; top: 20%; right: 22%;">
       <div class="main-login main-center" style = 'text-align: center; color: white;'>
-        <font size="6">Lista de orçamentos</font> 
+        <font size="6">Lista de orçamentos</font>
       </div>
     </div>
 
@@ -42,17 +42,17 @@
                   <div class='container' style = 'background-color: #545454;'>
                     <div class='list-card'>
                       <div class='list-label'>Novo orçamento</div>
-                        <img alt='' src={{orcamento.images[0].url}}>
+                        <img alt='' src='http://3.bp.blogspot.com/-3hi6gLGk5vA/UxjswjUbn2I/AAAAAAAAFIk/Qonb8_eiQqw/s1600/desenhos-de-coruja-para-tatuar.jpg'>
                         <div class='list-details'>
                           <div class='list-name' style='color: white;'>Tatuador: {{orcamento.negotiations[0].tattooArtist.name}}</div>
                           <div class='list-text' style='font-size: 12px;'>Local do corpo: {{orcamento.place}}</div>
                           <div class='list-text' style='font-size: 12px;'>Altura: {{orcamento.size.height}}</div>
                           <div class='list-text' style='font-size: 12px;'>Largura: {{orcamento.size.width}}</div>
                           <div class="form-row">
-                          <label class='list-text2' style='color: white; font-size: 16px;' for="valor">Valor do orçamento: </label>
-                          <div class="input-group"> 
+                          <label class='list-text2' style='color: white; font-size: 16px;' for="valor">Valor do orçamento: {{orcamento.negotiations[0].price}}</label>
+                          <div class="input-group">
                             <span class="input-group-addon" ng-if="!tipoUsuario">R$</span>
-                            <input type="number" value="100" min="0" step="10" data-number-to-fixed="2" data-number-stepfactor="100" class="button-g" id="valor" style='margin-right: 5px;' ng-if="!tipoUsuario"/>
+                            <input type="number" min="0" step="10" data-number-to-fixed="2" data-number-stepfactor="100" class="button-g" id="valor" style='margin-right: 5px;' ng-if="!tipoUsuario"/>
                             <input class="btn btn-primary" style="background-color:#0c8494;  margin-right: 5px;" type="button" value="Responder" ng-if="!tipoUsuario">
                             <input class="btn btn-primary" style="background-color:#0c8494;  margin-right: 5px;" type="button" value="Detalhes" ng-click="detalhes(orcamento)">
                           </div>

@@ -28,7 +28,7 @@
 
     <div style="position: absolute; width: 100%; height: 100px; top: 20%; right: 22%;">
       <div class="main-login main-center" style = 'text-align: center; color: white;'>
-        <font size="6">Lista de tatuadores</font> 
+        <font size="6">Lista de tatuadores</font>
       </div>
     </div>
 
@@ -41,18 +41,16 @@
                 <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
                   <div class='container' style = 'background-color: #545454;'>
                     <div class='list-card'>
-                      <div class='list-label'>Novo orçamento</div>
-                        <img alt='' src={{orcamento.images[0].url}}>
-                        <div class='list-details'>
-                          <div class='list-name' style='color: white;'>Tatuador: {{tatuador.name}}</div>
-                          <div class='list-text' style='font-size: 12px;'>Nome de usuário: {{tatuador.userName}}</div>
-                          <div class='list-text' style='font-size: 12px;'>Email: {{tatuador.email}}</div>
-                          <div class='list-text' style='font-size: 12px;'>Telefone: {{tatuador.phone.number}}</div>
-                          <div class="form-row">
-                            <div class="input-group"> 
-                              <input class="btn btn-primary" style="background-color:#0c8494;  margin-right: 5px;" type="button" value="Solicitar orçamento" ng-click="solicitar(tatuador)">
-                            </div>
-                        </div>
+                      <img alt='' src='http://tudoparahomens.com.br/wp-content/uploads/2016/07/tatuador-.jpg'>
+                      <div class='list-details'>
+                        <div class='list-name' style='color: white;'>Tatuador: {{tatuador.name}}</div>
+                        <div class='list-text' style='font-size: 12px;'>Nome de usuário: {{tatuador.userName}}</div>
+                        <div class='list-text' style='font-size: 12px;'>Email: {{tatuador.email}}</div>
+                        <div class='list-text' style='font-size: 12px;'>Telefone: {{tatuador.phone.number}}</div>
+                        <div class="form-row">
+                          <div class="input-group">
+                            <input class="btn btn-primary" style="background-color:#0c8494;  margin-right: 5px;" type="button" value="Solicitar orçamento" ng-click="solicitar(tatuador)">
+                          </div>
                       </div>
                     </div>
                   </div>
