@@ -6,36 +6,40 @@
     routesCtrl.config(['$routeProvider', function($routeProvider){
 
      $routeProvider
-     // para a rota '/', carregaremos o template home.html e o controller 'HomeCtrl'
+
      .when('/login', {
         templateUrl : '/views/login.html',
         controller : 'loginCtrl'
      })
 
-     // para a rota '/sobre', carregaremos o template sobre.html e o controller 'SobreCtrl'
+     .when('/', {
+        templateUrl : '/views/login.html',
+        controller : 'loginCtrl'
+     })
+     
      .when('/cadastrar', {
-        templateUrl : '/views/cadastrar.html',
+        templateUrl : '/views/cadastro.html',
         controller : 'cadastroCtrl'
      })
 
      .when('/enviar_orcamento', {
-        templateUrl : '/views/enviarOrcamento.html',
-        controller : 'orcamentoCtrl'
+        templateUrl : '/views/enviaOrcamento.html',
+        controller : 'criaOrcCtrl'
      })
 
     .when('/responder_orcamento', {
-        templateUrl : '/views/responderOrcamento.html',
-        controller : 'detalhesCtrl'
+        templateUrl : '/views/respondeOrcamento.html',
+        controller : 'editarOrcCtrl'
      })
 
      .when('/editar_orcamento', {
-        templateUrl : '/views/editarOrcamento.html',
-        controller : 'detalhesCtrl'
+        templateUrl : '/views/editaOrcamento.html',
+        controller : 'editarOrcCtrl'
      })
 
     .when('/lista_orcamento', {
-        templateUrl : '/views/cardOrcamento.html',
-        controller : 'listaCtrl'
+        templateUrl : '/views/listaOrcamento.html',
+        controller : 'listaOrcCtrl'
      })
     
     .when('/pesquisa', {
@@ -46,6 +50,11 @@
     .when('/resultado', {
         templateUrl : '/views/listaTatuadores.html',
         controller : 'listaTatuadorCtrl'
+     })
+
+    .when('/perfil', {
+        templateUrl : '/views/perfil.html',
+        controller : 'perfilCtrl'
      })
 
    }]);

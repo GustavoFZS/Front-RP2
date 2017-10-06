@@ -1,6 +1,6 @@
-var serviceLista = angular.module('DoMyTattoo');
+var serviceOrcLista = angular.module('DoMyTattoo');
 
-serviceLista.service('listaService', function($http) {
+serviceOrcLista.service('listaOrcService', function($http) {
   // privado
   var message = {};
 
@@ -49,7 +49,7 @@ serviceLista.service('listaService', function($http) {
 });
 
 //--- AQUI VAI O CONTROLLER (agora mais magro)
-serviceLista.controller('listaCtrl', function($scope, $rootScope, $location, listaService) {
+serviceOrcLista.controller('listaOrcCtrl', function($scope, $rootScope, $location, listaOrcService) {
 
   $scope.idCliente = $rootScope.usuario._id;
 
@@ -57,7 +57,7 @@ serviceLista.controller('listaCtrl', function($scope, $rootScope, $location, lis
 
     if($rootScope.tipoUsuario){
 
-      listaService.getLista($scope.idCliente, function(response, success){
+      listaOrcService.getLista($scope.idCliente, function(response, success){
         console.log('retornou');
 
         if(success) {
@@ -76,7 +76,7 @@ serviceLista.controller('listaCtrl', function($scope, $rootScope, $location, lis
 
     } else {
 
-        listaService.getLista2($scope.idCliente, function(response, success){
+        listaOrcService.getLista2($scope.idCliente, function(response, success){
         console.log('retornou');
 
         if(success) {
@@ -95,7 +95,7 @@ serviceLista.controller('listaCtrl', function($scope, $rootScope, $location, lis
 
   };
 
-  $scope.detalhes = function(orcamento){
+  $scope.editar = function(orcamento){
 
     $rootScope.orcamento = orcamento;
     console.log($rootScope.orcamento);

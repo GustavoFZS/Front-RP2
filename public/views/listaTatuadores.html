@@ -1,65 +1,52 @@
 <!DOCTYPE html>
 <html ng-app="DoMyTattoo">
-  <head>
-    <title>Tatuadores</title>
-    <link rel="stylesheet" href="../css/card.css">
-    <link rel="stylesheet" href="../css/formatacao.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
-    <script src="../components/bootstrap/dist/js/bootstrap.js"></script>
-  </head>
+<head>
+  <title>Tatuadores</title>
+  <link rel="stylesheet" href="../css/card.css">
+  <link rel="stylesheet" href="../css/formatacao.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+  <script src="../components/bootstrap/dist/js/bootstrap.js"></script>
+</head>
 
-  <body ng-controller="listaTatuadorCtrl">
+<body ng-controller="listaTatuadorCtrl">
 
-    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
-      <img src="../imagens/logo-domytattoo.png" class="img-responsive" alt="Logo" width="170px" style="padding-top: 8px;"/>
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active" ng-if="tipoUsuario">
-            <input type="button" class="btn btn-link" ng-click="goPagina('pesquisa')" style="font-size: 16px; color: white;" value="Home" />
-          </li>
-          <li class="nav-item active">
-            <input type="button" class="btn btn-link" ng-click="goPagina('lista_orcamento')" style="font-size: 16px; color: white;" value="Orçamentos" />
-            <input type="button" class="btn btn-link" ng-click="goPagina('login')" style="font-size: 16px; color: white;" value="Sair" />
-          </li>
-        </ul>
-        <font size="3" style="color: white">{{usuario.name}}</font>
-      </div>
-    </nav>
+  <div ng-include="'../views/navbar.html'" ng-controller="navbarCtrl"></div>
 
-    <div style="position: absolute; width: 100%; height: 100px; top: 20%; right: 22%;">
-      <div class="main-login main-center" style = 'text-align: center; color: white;'>
-        <font size="6">Lista de tatuadores</font>
-      </div>
+  <div style="position: absolute; width: 100%; height: 100px; top: 20%; right: 22%;">
+    <div class="main-login main-center" style = 'text-align: center; color: white;'>
+      <font size="6">Lista de tatuadores</font>
     </div>
+  </div>
 
-    <div class="container transparent">
-      <div style="position: absolute; width: 200%; height: 10%; top: 30%; left: 18%;">
-        <div class="row vertical-offset-100">
-          <div class="col-md-4 col-md-offset-4" style = 'background-color: #545454;'>
-            <div class="panel-body">
-              <div ng-repeat="tatuador in lista">
-                <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-                  <div class='container' style = 'background-color: #545454;'>
-                    <div class='list-card'>
-                      <img alt='' src='http://tudoparahomens.com.br/wp-content/uploads/2016/07/tatuador-.jpg'>
-                      <div class='list-details'>
-                        <div class='list-name' style='color: white;'>Tatuador: {{tatuador.name}}</div>
-                        <div class='list-text' style='font-size: 12px;'>Nome de usuário: {{tatuador.userName}}</div>
-                        <div class='list-text' style='font-size: 12px;'>Email: {{tatuador.email}}</div>
-                        <div class='list-text' style='font-size: 12px;'>Telefone: {{tatuador.phone.number}}</div>
-                        <div class="form-row">
-                          <div class="input-group">
-                            <input class="btn btn-primary" style="background-color:#0c8494;  margin-right: 5px;" type="button" value="Solicitar orçamento" ng-click="solicitar(tatuador)">
-                          </div>
+  <div class="container transparent">
+    <div style="position: absolute; width: 200%; height: 10%; top: 30%; left: 18%;">
+      <div class="row vertical-offset-100">
+        <div class="col-md-4 col-md-offset-4" style = 'background-color: #545454;'>
+          <div class="panel-body">
+            <div ng-repeat="tatuador in lista">
+              <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+              <div class='container' style = 'background-color: #545454;'>
+                <div class='list-card'>
+                  <img class="img-responsive" style="border-radius: 100%;" alt='' src='http://tudoparahomens.com.br/wp-content/uploads/2016/07/tatuador-.jpg'>
+                  <div class='list-details'>
+                    <div class='list-name' style='color: white;'>Tatuador: {{tatuador.name}}</div>
+                    <div class='list-text' style='font-size: 12px;'>Nome de usuário: {{tatuador.userName}}</div>
+                    <div class='list-text' style='font-size: 12px;'>Email: {{tatuador.email}}</div>
+                    <div class='list-text' style='font-size: 12px;'>Telefone: {{tatuador.phone.number}}</div>
+                    <div class="form-row">
+                      <div class="input-group">
+                        <input class="btn btn-primary" style="background-color:#0c8494;  margin-right: 5px;" type="button" value="Solicitar orçamento" ng-click="solicitar(tatuador)">
+                        <input class="btn btn-primary" style="background-color:#0c8494;  margin-right: 5px;" type="button" value="Ver perfil" ng-click="perfil(tatuador)">
                       </div>
                     </div>
                   </div>
-                </link>
-              </div>
+                </div>
+              </link>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </body>
+  </div>
+</body>
 </html>

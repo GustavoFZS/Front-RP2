@@ -1,6 +1,6 @@
 var serviceLogin = angular.module('DoMyTattoo');
 
-serviceLogin.service('usuarioService', function($http) {
+serviceLogin.service('loginService', function($http) {
   // privado
   var message = {};
 
@@ -27,7 +27,7 @@ serviceLogin.service('usuarioService', function($http) {
 });
 
 //--- AQUI VAI O CONTROLLER (agora mais magro)
-serviceLogin.controller('loginCtrl', function($scope, $rootScope, $location, usuarioService) {
+serviceLogin.controller('loginCtrl', function($scope, $rootScope, $location, loginService) {
 
   $scope.user = ""; //pode ser email ou userName
   $scope.password = "";
@@ -40,7 +40,7 @@ serviceLogin.controller('loginCtrl', function($scope, $rootScope, $location, usu
   }
 
   $scope.login = function(){
-    usuarioService.getUsuarios($scope.user, $scope.password, function(response, success){
+    loginService.getUsuarios($scope.user, $scope.password, function(response, success){
       console.log('retornou');
 
       if(success) {

@@ -1,10 +1,10 @@
-var serviceOrcamento = angular.module('DoMyTattoo');
+var serviceCriaOrc = angular.module('DoMyTattoo');
 
-serviceOrcamento.service('orcamentoService', function($http) {
+serviceCriaOrc.service('criaOrcService', function($http) {
   // privado
   var message = {};
 
-  this.getOrcamento = function(idCliente, myArray, tatuador, local, altura, 
+  this.novoOrc = function(idCliente, myArray, tatuador, local, altura, 
       largura, descricao, tatuadorId, callback) {
 
     $http({
@@ -46,7 +46,7 @@ serviceOrcamento.service('orcamentoService', function($http) {
 });
 
 //--- AQUI VAI O CONTROLLER (agora mais magro)
-serviceOrcamento.controller('orcamentoCtrl', function($scope, $rootScope, $location, orcamentoService) {
+serviceCriaOrc.controller('criaOrcCtrl', function($scope, $rootScope, $location, criaOrcService) {
 
   $scope.idCliente = $rootScope.usuario._id;
 
@@ -57,7 +57,7 @@ serviceOrcamento.controller('orcamentoCtrl', function($scope, $rootScope, $locat
   myArray.push("https://fotostatuagens.com/wp-content/uploads/2016/07/Tatuagens-de-Onda.jpg");
 
   $scope.enviar = function(){
-    orcamentoService.getOrcamento($scope.idCliente, myArray, $rootScope.tatuador.userName, $scope.local, $scope.altura, 
+    criaOrcService.novoOrc($scope.idCliente, myArray, $rootScope.tatuador.userName, $scope.local, $scope.altura, 
       $scope.largura, $scope.descricao, $rootScope.tatuador._id, function(data, success){
 
       console.log('retornou');
@@ -66,7 +66,7 @@ serviceOrcamento.controller('orcamentoCtrl', function($scope, $rootScope, $locat
         console.log('sucesso');
       }
       else {
-        console.log('merda deu ' + $scope.idCliente._id);
+        console.log('merda deu ');
       }
 
     });

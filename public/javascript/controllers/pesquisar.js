@@ -15,8 +15,4 @@ servicePesquisa.controller('pesquisaCtrl', function($scope, $rootScope, $locatio
 
   };
   
-    $scope.goPagina = function(view){
-        $location.path(view); // path not hash
-    };
-  
 });

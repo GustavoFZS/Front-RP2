@@ -58,6 +58,14 @@ serviceTatuadorLista.controller('listaTatuadorCtrl', function($scope, $rootScope
 
   };
 
+  $scope.perfil = function(tatuador){
+
+    console.log(tatuador);
+    $rootScope.tatuador = tatuador;
+    $location.path('perfil'); // path not hash
+
+  };
+
   $scope.listar();
 
     $scope.goPagina = function(view){
@@ -66,3 +74,4 @@ serviceTatuadorLista.controller('listaTatuadorCtrl', function($scope, $rootScope
 
   
 });
+

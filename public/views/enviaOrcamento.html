@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app="DoMyTattoo">
+	<head>
+		<meta charset="UTF-8">
+		<title>Enviar orcamento</title>
+		<link rel="stylesheet" href="../css/formatacao.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+		<script src="../components/bootstrap/dist/js/bootstrap.js"></script>
+	</head>
+
+	<body ng-controller="criaOrcCtrl">
+
+    <div ng-include="'../views/navbar.html'" ng-controller="navbarCtrl"></div>
+
+		<div style="position: absolute; width: 100%; height: 100px; top: 20%; right: 22%;">
+			<div class="main-login main-center" style = 'text-align: center; color: white;'>
+				<font size="6">Solicitar orçamento</font> 
+			</div>
+		</div>
+
+		<div class="container transparent">
+			<div style="position: absolute; width: 200%; height: 10%; top: 30%; left: 18%;">
+				<div class="row vertical-offset-100">
+					<div class="col-md-4 col-md-offset-4" style = 'background-color: #545454;'>
+						<div class="panel-body">
+							<label class="panel-login">
+								<div class="login_result"></div>
+							</label>
+
+	 						<div class="panel-heading">
+								<div class="row-fluid user-row">
+									<input class="form-control" value = {{tatuador.userName}} id="Tatuador" type="text" style ="background-color:rgba(0,0,0,0.5); color: white" disabled>
+								</div>
+							</div>
+
+							<form class="form-inline">
+							  	<div class="col-xs-2">
+							  		<input class="form-control" id="Local do corpo" type="text" style ="width: 274px; color: white;background-color:rgba(0,0,0,0);"
+							  		 ng-model="local" placeholder="Local do corpo">
+							    	<input type="text" class="form-control" id="altura" style = "width: 275px;
+							    	color: white; background-color:rgba(0,0,0,0); " ng-model="altura" placeholder="Altura">
+							   		<input type="text" class="form-control" id="largura" style = "width: 275px;
+							   		color: white; background-color:rgba(0,0,0,0); " ng-model="largura"
+							   		placeholder="Largura">
+							 	</div>
+							</form>
+
+							<div class="panel-heading transparent">
+								<div class="row-fluid user-row transparent">
+									<input class="form-control resizedTextbox" id="descricao" style ="color: white; background-color:rgba(0,0,0,0); " ng-model="descricao" placeholder="Descrição">
+								</div>
+							</div>
+
+							<br></br>
+							<div class="form-group ">
+								<a style="background-color:#0c8494;" type="button" id="logingin-button" class="btn btn-primary btn-lg btn-block login-button" ng-click="enviar()">Enviar orçamento</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

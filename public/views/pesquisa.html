@@ -27,20 +27,7 @@
 	</head>
 	<body ng-controller="pesquisaCtrl">
 
-		<nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
-			<div class="collapse navbar-collapse" id="navbarsExampleDefault">
-				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active" ng-if="tipoUsuario">
-						<input type="button" class="btn btn-link" ng-click="goPagina('pesquisa')" style="font-size: 16px; color: white;" value="Home" />
-					</li>
-					<li class="nav-item active">
-						<input type="button" class="btn btn-link" ng-click="goPagina('lista_orcamento')" style="font-size: 16px; color: white;" value="Orçamentos" />
-						<input type="button" class="btn btn-link" ng-click="goPagina('login')" style="font-size: 16px; color: white;" value="Sair" />
-					</li>
-				</ul>
-				<font size="3" style="color: white">{{usuario.name}}</font>
-			</div>
-		</nav>
+    <div ng-include="'../views/navbar.html'" ng-controller="navbarCtrl"></div>
 
 		<div style="position: absolute; width: 100%; height: 116px; top: 30%; left: 0;">
 			<div class="row vertical-offset-100">
