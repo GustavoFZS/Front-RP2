@@ -101,15 +101,7 @@ serviceOrcLista.controller('listaOrcCtrl', function($scope, $rootScope, $locatio
     console.log($rootScope.orcamento);
     $rootScope.tatuador = orcamento.negotiations[0].tattooArtist;
 
-    if(!$rootScope.usuario.isCustomer){
-
-      $location.path('responder_orcamento'); // path not hash
-
-    } else {
-
       $location.path('editar_orcamento'); // path not hash
-
-    }
 
   };
 
