@@ -30,7 +30,7 @@
 						<div ng-if="tipoUsuario">
 							<div class="panel-heading">
 								<div class="row-fluid user-row">
-									<input class="form-control" value = {{tatuador.name}} id="tatuador" type="text" style ="background-color:rgba(0,0,0,0.5); color: white" disabled>
+									<input class="form-control" value = {{negociacao.tattooArtist.name}} id="tatuador" type="text" style ="background-color:rgba(0,0,0,0.5); color: white" disabled>
 								</div>
 							</div>
 
@@ -52,7 +52,7 @@
 
 							<div class="panel-heading">
 								<div class="row-fluid user-row">
-									<input class="form-control" placeholder="Valor" id="Valor" type="text" ng-model="orcamento.negotiations[0].price" style ="background-color:rgba(0,0,0,0.5); color: white" disabled>
+									<input class="form-control" placeholder="Valor" id="Valor" type="text" ng-model="negociacao.price" style ="background-color:rgba(0,0,0,0.5); color: white" disabled>
 								</div>
 							</div>
 						</div>
@@ -60,7 +60,7 @@
 						<div ng-if="!tipoUsuario">
 							<div class="panel-heading">
 								<div class="row-fluid user-row">
-									<input class="form-control" value = {{orcamento.customer.name}} id="Tatuador" type="text" style ="background-color:rgba(0,0,0,0.5); color: white" disabled>
+									<input class="form-control" value = {{orcamento.customer.name}} id="Tatuador" type="text" style ="background-color:rgba(0,0,0,0.5); color: white;" disabled>
 								</div>
 							</div>
 
@@ -93,7 +93,7 @@
 
 
 						<div class="form-control pre-scrollable" type="text" style ="background-color:rgba(0,0,0,0.5); height: 300px;">
-							<div ng-repeat="msg in orcamento.negotiations[0].chat">
+							<div ng-repeat="msg in negociacao.chat">
 								<div ng-if="msg.sender._id==usuario._id" style ="color: white; margin:10px; ">você: {{msg.message}}</div>
 								<div ng-if="msg.sender._id!=usuario._id" style ="color: #A9A9A9; margin:10px;">{{msg.sender.name}}: {{msg.message}}</div>
 							</div>

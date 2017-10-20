@@ -65,7 +65,6 @@ serviceLogin.controller('loginCtrl', function($scope, $rootScope, $location, log
       else {
 
         console.log('deu ruim');
-        
       }
 
     });

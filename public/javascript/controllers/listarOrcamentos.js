@@ -95,13 +95,13 @@ serviceOrcLista.controller('listaOrcCtrl', function($scope, $rootScope, $locatio
 
   };
 
-  $scope.editar = function(orcamento){
+  $scope.editar = function(orcamento, negociacao){
 
+
+    $rootScope.negociacao = negociacao;
     $rootScope.orcamento = orcamento;
-    console.log($rootScope.orcamento);
-    $rootScope.tatuador = orcamento.negotiations[0].tattooArtist;
 
-      $location.path('editar_orcamento'); // path not hash
+    $location.path('editar_orcamento'); // path not hash
 
   };
 

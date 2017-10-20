@@ -85,10 +85,10 @@ serviceEditarOrc.controller('editarOrcCtrl', function($scope, $rootScope, $locat
 
 	$scope.orcamento = $rootScope.orcamento;
 
-	$scope.tatuador = $rootScope.orcamento.negotiations[0].tattooArtist;
+	$scope.negociacao = $rootScope.negociacao;
 
 	$scope.enviar = function(){
-		editarOrcService.setOrcamento($scope.idCliente, myArray, $scope.tatuador, $scope.local, $scope.altura, 
+		editarOrcService.setOrcamento($scope.idCliente, myArray, $scope.negociacao.tattooArtist, $scope.local, $scope.altura, 
 			$scope.largura, $scope.descricao, function(data, success){
 
 				console.log('retornou');
@@ -105,7 +105,7 @@ serviceEditarOrc.controller('editarOrcCtrl', function($scope, $rootScope, $locat
 	};
 
 	$scope.responder = function(){
-		editarOrcService.setPreco($scope.orcamento._id , $scope.orcamento.negotiations[0]._id, $scope.valor, function(data, success){
+		editarOrcService.setPreco($scope.orcamento._id , $scope.negociacao._id, $scope.valor, function(data, success){
 
 			console.log('retornou');
 
@@ -120,7 +120,7 @@ serviceEditarOrc.controller('editarOrcCtrl', function($scope, $rootScope, $locat
 	};
 
 	$scope.comentar = function(){
-		editarOrcService.setChat($scope.orcamento._id , $scope.orcamento.negotiations[0]._id, $rootScope.usuario._id, $scope.mensagem, function(data, success){
+		editarOrcService.setChat($scope.orcamento._id , $scope.negociacao._id, $rootScope.usuario._id, $scope.mensagem, function(data, success){
 		console.log('retornou');
 
 			if(success) {

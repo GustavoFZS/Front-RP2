@@ -1,15 +1,18 @@
-<nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
-	<img src="../imagens/logo-domytattoo.png" class="img-responsive" alt="Logo" width="170px" style="padding-top: 8px;"/>
+<nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark" style="height: 65px;">
+	<img src="../imagens/logo-domytattoo.png" class="img-responsive" alt="Logo" width="170px" style=" position: absolute; left: 50%; margin-left: -50px !important; display: block;"/>
 	<div class="collapse navbar-collapse" id="navbarsExampleDefault">
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item active" ng-if="tipoUsuario">
-				<input type="button" class="btn btn-link" ng-click="goPagina('pesquisa')" style="font-size: 16px; color: white;" value="Home" />
+				<button type="button" class="btn btn-outline-secondary" ng-click="goPagina('pesquisa')" style="font-size: 18px; color: white; border: none;">Home</button>
+			</li>
+			<li class="nav-item active" ng-if="!tipoUsuario">
+				<button type="button" class="btn btn-outline-secondary" ng-click="goPagina('flashwork')" style="font-size: 18px; color: white; border: none;">Flashwork</button>
 			</li>
 			<li class="nav-item active">
-				<input type="button" class="btn btn-link" ng-click="goPagina('lista_orcamento')" style="font-size: 16px; color: white;" value="Orçamentos" />
-				<input type="button" class="btn btn-link" ng-click="goPagina('login')" style="font-size: 16px; color: white;" value="Sair" />
+				<button type="button" class="btn btn-outline-secondary" ng-click="goPagina('lista_orcamento')" style="font-size: 18px; color: white; border: none;">Orçamentos</button>
+				<button type="button" class="btn btn-outline-secondary" ng-click="goPagina('login')" style="font-size: 18px; color: white; border: none;">Sair</button>
 			</li>
 		</ul>
-		<font size="3" style="color: white">{{usuario.name}}</font>
+		<font size="4" style="color: white">{{usuario.name}}</font>
 	</div>
 </nav>

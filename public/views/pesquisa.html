@@ -1,74 +1,81 @@
 <!DOCTYPE html>
 <html ng-app="DoMyTattoo">
-	<head
-		<meta charset="UTF-8">
-		<title>Pesquisa</title>
-		<link rel="stylesheet" href="../components/bootstrap/dist/css/bootstrap.css">
-		<link rel="stylesheet" href="../css/formatacao.css">
-		    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
-    	<script src="../components/bootstrap/dist/js/bootstrap.js"></script>
-		<style>
-			#imaginary_container{
-		    margin-top:20%; /* Don't copy this */
-			}
-			.stylish-input-group .input-group-addon{
-			    background: white !important;
-			}
-			.stylish-input-group .form-control{
-				border-right:0;
-				box-shadow:0 0 0;
-				border-color:#ccc;
-			}
-			.stylish-input-group button{
-			    border:0;
-			    background:transparent;
-			}
-		</style>
-	</head>
-	<body ng-controller="pesquisaCtrl">
+<head>
+	<meta charset="UTF-8">
+	<title>Pesquisa</title>
+	<link rel="stylesheet" href="../components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="../css/formatacao.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+	<script src="../components/bootstrap/dist/js/bootstrap.js"></script>
+	<style>
+	.searchField {
+		display: inline-block;
+		width: 433%;
+		height: 38px;
+		margin: 10px;
+		border: 1px solid grey;
+		font-size: 20px;
+		outline: grey;
+		cursor: pointer;
+		color: grey;
+		box-sizing:border-box;
+		border-radius: 10px;
+		text-indent: 10px;
+	}
+	.searchInput {
+		position: relative;
+	}
+	.searchInput .glyphicon {
+		position: absolute;
+		z-index: 2;
+		font-size: 24px;
+		width: 150%;
+		color: #4b4b4b;
+		text-align: center;
+		left: 830px;
+		top: 16px;
+		cursor: pointer;
+	}
+</style>
+</head>
+<body ng-controller="pesquisaCtrl">
 
-    <div ng-include="'../views/navbar.html'" ng-controller="navbarCtrl"></div>
+	<div ng-include="'../views/navbar.html'" ng-controller="navbarCtrl"></div>
 
-		<div style="position: absolute; width: 100%; height: 116px; top: 30%; left: 0;">
-			<div class="row vertical-offset-100">
-				<div class="panel-heading">
-					<div class="row-fluid user-row">
-						<div class="col-md-4 col-md-offset-4 alinhar">
-							<img src="../imagens/domytattoo2.png" class="img-responsive" alt="Logo"/>
+	<div style="position: absolute; width: 100%; height: 116px; top: 30%; left: 0; ">
+		<div class="row vertical-offset-100">
+			<div class="panel-heading">
+				<div class="row-fluid user-row">
+					<div class="col-md-4 col-md-offset-4 alinhar">
+						<img src="../imagens/domytattoo2.png" class="img-responsive" alt="Logo"/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div style="position: absolute; width: 100%; height: 100px; top: 48%;">
+		<div class="main-login main-center" style = 'text-align: center; color: white;'>
+			<font size="5">Uma platadorma para agilizar o orçamento de tatuagens</font>
+			<p></p>
+			<font size="3">Para tornar o primeiro contato muito mais fácil entre você e seu tatuador</font>
+		</div>
+	</div>
+
+	<div style="position: absolute; width: 40%; top: 60%;">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-sm-offset-3">
+					<div class="input-group stylish-input-group">
+						<div class="searchInput">
+							<input type="text" ng-model="tatuador" class="searchField" placeholder="Buscar" ng-start="">
+							<label for="search" class="glyphicon glyphicon-search" rel="tooltip" title="search" ng-click="chamaPesquisa()"></label>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 
-		 <div style="position: absolute; width: 100%; height: 100px; top: 48%;">
-	      <div class="main-login main-center" style = 'text-align: center; color: white;'>
-	        <font size="4">Uma platadorma para agilizar o orçamento de tatuagens</font>
-	      </div>
-	    </div>
-
-		<div style="position: absolute; width: 100%; height: 100px; top: 45%;">
-			<div class="container">
-				<div class="row">
-			        <div class="col-sm-6 col-sm-offset-3">
-			            <div id="imaginary_container">
-			                <div class="input-group stylish-input-group">
-			                    <input type="text" class="form-control" placeholder="Pesquisar" ng-model="tatuador" ng-start="">
-			                    <span class="input-group-addon">
-			                        <button type="submit" ng-click="chamaPesquisa()" style='margin-left: -20px;
-    z-index: 9999;'>
-			                            <span class="glyphicon glyphicon-search"></span>
-			                        </button>
-			                    </span>
-			                </div>
-			            </div>
-			        </div>
-				</div>
-			</div>
-		</div>
-		<script src="../components/angular/angular.js"></script>
-		<script src="../components/angular-route/angular-route.js"></script>
-		<script src="../components/jquery/dist/jquery.js"></script>
-		<script src="../components/bootstrap/dist/js/bootstrap.js"></script>
-	</body>
+</body>
 </html>
