@@ -14,5 +14,5 @@ servicePesquisa.controller('pesquisaCtrl', function($scope, $rootScope, $locatio
     $location.path('resultado'); // path not hash
 
   };
-  
+
 });

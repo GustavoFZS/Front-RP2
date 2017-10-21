@@ -14,7 +14,7 @@
 
 		<div style="position: absolute; width: 100%; height: 100px; top: 20%; right: 22%;">
 			<div class="main-login main-center" style = 'text-align: center; color: white;'>
-				<font size="6">Enviar Flashwork</font> 
+				<font size="6">Enviar Flashwork</font>
 			</div>
 		</div>
 
@@ -50,6 +50,28 @@
 									<input class="form-control resizedTextbox" id="descricao" style ="color: white; background-color:rgba(0,0,0,0); " ng-model="descricao" placeholder="Descrição">
 								</div>
 							</div>
+
+							<div class="container">
+    <div class="row">
+        <div class='col-sm-6'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker2'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker2').datetimepicker({
+                    locale: 'ru'
+                });
+            });
+        </script>
+    </div>
+</div>
 
 							<br></br>
 							<div class="form-group ">

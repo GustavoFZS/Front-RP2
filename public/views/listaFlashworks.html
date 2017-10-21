@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="DoMyTattoo">
+<head>
+  <title>Lista de Flashwork</title>
+  <link rel="stylesheet" href="../css/card.css">
+  <link rel="stylesheet" href="../css/formatacao.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+  <script src="../components/bootstrap/dist/js/bootstrap.js"></script>
+</head>
+
+<body ng-controller="listaOrcCtrl">
+
+  <div ng-include="'../views/navbar.html'" ng-controller="navbarCtrl"></div>
+  <div style="position: absolute; width: 100%; height: 100px; top: 20%; right: 22%;">
+    <div class="main-login main-center" style = 'text-align: center; color: white;'>
+      <font size="6">Lista de Flashworks</font>
+    </div>
+  </div>
+
+  <div class="container transparent">
+    <div style="position: absolute; width: 200%; height: 10%; top: 30%; left: 18%;">
+      <div class="row vertical-offset-100">
+        <div class="col-md-4 col-md-offset-4">
+          <div class="panel-body">
+            <div ng-repeat="orcamento in lista">
+              <div ng-repeat="negociacao in orcamento.negotiations">
+                <div ng-if="tipoUsuario || negociacao.tattooArtist._id==usuario._id">
+                  <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+                  <div class='container' style = 'background-color: #545454; margin:10px; border-radius: 10px;'>
+                    <div class='list-card'>
+                      <div class='list-label'>Novo orçamento</div>
+                      <img alt='' src='http://3.bp.blogspot.com/-3hi6gLGk5vA/UxjswjUbn2I/AAAAAAAAFIk/Qonb8_eiQqw/s1600/desenhos-de-coruja-para-tatuar.jpg'>
+                      <div class='list-details'>
+                        <div class='list-name' style='color: white;'>Preço: {{negociacao.tattooArtist.name}}</div>
+                        <div class='list-text' style='font-size: 12px;'>Altura: {{orcamento.size.height}}</div>
+                        <div class='list-text' style='font-size: 12px;'>Largura: {{orcamento.size.width}}</div>
+                        <div class="form-row">
+                          <label class='list-text2' style='color: white; font-size: 16px;' for="valor">Valor do orçamento: {{negociacao.price}}</label>
+                          <div class="input-group">
+                            <span class="input-group-addon" ng-if="!tipoUsuario">R$</span>
+                            <input type="number" min="0" step="10" data-number-to-fixed="2" data-number-stepfactor="100" class="button-g" id="Tenho interesse" style='margin-right: 5px;' ng-if="!tipoUsuario"/>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -16,7 +16,7 @@
     templateUrl : '/views/login.html',
     controller : 'loginCtrl'
 })
-   
+
    .when('/cadastrar', {
     templateUrl : '/views/cadastro.html',
     controller : 'cadastroCtrl'
@@ -41,7 +41,7 @@
     templateUrl : '/views/listaOrcamento.html',
     controller : 'listaOrcCtrl'
 })
-   
+
    .when('/pesquisa', {
     templateUrl : '/views/pesquisa.html',
     controller : 'pesquisaCtrl'
@@ -59,6 +59,16 @@
 
 .when('/flashwork', {
     templateUrl : '/views/enviaFlashwork.html',
+    controller : 'criaFlwCtrl'
+})
+
+.when('/listaflashwork', {
+    templateUrl : '/views/listaFlashworks.html',
+    controller : 'criaFlwCtrl'
+})
+
+.when('/teste', {
+    templateUrl : '/views/navbar.html',
     controller : 'criaFlwCtrl'
 })
 
