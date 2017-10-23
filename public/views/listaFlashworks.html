@@ -1,56 +1,91 @@
 <!DOCTYPE html>
 <html ng-app="DoMyTattoo">
 <head>
-  <title>Lista de Flashwork</title>
-  <link rel="stylesheet" href="../css/card.css">
-  <link rel="stylesheet" href="../css/formatacao.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
-  <script src="../components/bootstrap/dist/js/bootstrap.js"></script>
+	<title>Lista de Flashwork</title>
+	<link rel="stylesheet" href="../css/card.css">
+	<link rel="stylesheet" href="../css/formatacao.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
+	<style>
+	div.efeito {
+
+		display: table;
+		background-color:rgba(0,0,0,0.5);
+		border-radius: 10px;
+		position: relative;
+		margin:10px;
+		width: 70%;
+
+	}
+	p.alinhado {
+
+		font-size: 14px;
+		color: white;
+		display: table-cell;
+		vertical-align: middle;
+		font-family: "Calibri", Times;
+		text-align: left;
+		padding-left: 12px
+
+	}
+	p.alinhado2 {
+
+		font-size: 23px;
+		color: white;
+		display: table-cell;
+		vertical-align: middle;
+		font-family: "Calibri", Times;
+		text-align: left;
+		padding-left: 12px
+
+	}
+</style>
 </head>
 
-<body ng-controller="listaOrcCtrl">
+<body ng-controller="listaFlwCtrl">
 
-  <div ng-include="'../views/navbar.html'" ng-controller="navbarCtrl"></div>
-  <div style="position: absolute; width: 100%; height: 100px; top: 20%; right: 22%;">
-    <div class="main-login main-center" style = 'text-align: center; color: white;'>
-      <font size="6">Lista de Flashworks</font>
-    </div>
-  </div>
+	<div ng-include="'../views/navbar.html'" ng-controller="navbarCtrl"></div>
+	<div style="position: absolute; width: 100%; height: 100px; top: 20%; right: 22%;">
+		<div class="main-login main-center" style = 'text-align: center; color: white;'>
+			<font size="6">Lista de Flashworks</font>
+		</div>
+	</div>
 
-  <div class="container transparent">
-    <div style="position: absolute; width: 200%; height: 10%; top: 30%; left: 18%;">
-      <div class="row vertical-offset-100">
-        <div class="col-md-4 col-md-offset-4">
-          <div class="panel-body">
-            <div ng-repeat="orcamento in lista">
-              <div ng-repeat="negociacao in orcamento.negotiations">
-                <div ng-if="tipoUsuario || negociacao.tattooArtist._id==usuario._id">
-                  <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-                  <div class='container' style = 'background-color: #545454; margin:10px; border-radius: 10px;'>
-                    <div class='list-card'>
-                      <div class='list-label'>Novo orçamento</div>
-                      <img alt='' src='http://3.bp.blogspot.com/-3hi6gLGk5vA/UxjswjUbn2I/AAAAAAAAFIk/Qonb8_eiQqw/s1600/desenhos-de-coruja-para-tatuar.jpg'>
-                      <div class='list-details'>
-                        <div class='list-name' style='color: white;'>Preço: {{negociacao.tattooArtist.name}}</div>
-                        <div class='list-text' style='font-size: 12px;'>Altura: {{orcamento.size.height}}</div>
-                        <div class='list-text' style='font-size: 12px;'>Largura: {{orcamento.size.width}}</div>
-                        <div class="form-row">
-                          <label class='list-text2' style='color: white; font-size: 16px;' for="valor">Valor do orçamento: {{negociacao.price}}</label>
-                          <div class="input-group">
-                            <span class="input-group-addon" ng-if="!tipoUsuario">R$</span>
-                            <input type="number" min="0" step="10" data-number-to-fixed="2" data-number-stepfactor="100" class="button-g" id="Tenho interesse" style='margin-right: 5px;' ng-if="!tipoUsuario"/>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+	<div class="container transparent">
+		<div style="position: absolute; width: 200%; height: 10%; top: 30%; left: 18%;">
+			<div class="row vertical-offset-100">
+				<div class="col-md-4 col-md-offset-4">
+					<div class="panel-body">
+						<div ng-repeat="flashwork in lista">
+							<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+							<div class='container' style = 'background-color: #545454; margin:10px; border-radius: 10px;'>
+								<div class='list-card'>
+									<div class='list-label'>Novo flashwork</div>
+									<img alt='' src= {{flashwork.images[0].url}}>
+									<div class='list-details'>
+										<div class='efeito' ng-if="flashwork.isAuction"><p class='alinhado2'>Último lance: {{flashwork.currentBid.price}}</p></div>
+										<div class='efeito' ng-if="!flashwork.isAuction"><p class='alinhado2'>Preco: {{flashwork.price}}</p></div>
+										<div class='efeito' ng-click="perfil(flashwork.tattooArtist)"><p class='alinhado'>Tatuador: {{flashwork.tattooArtist.name}}</p></div>
+										<div class='efeito'><p class='alinhado'> Estilo: {{flashwork.style.name}}</p></div>
+										<div class='efeito' ng-if="flashwork.isAuction"><p class='alinhado'"> Data limite: {{formataData(flashwork.expireDate)}}</p></div>
+										<div class="form-row" ng-if="tipoUsuario && flashwork.isAuction">
+											<div class="input-group">
+												<input type="number" min="0" step="10" data-number-to-fixed="2" data-number-stepfactor="100" class="button-g" placeholder="R$" id="preco" ng-model="valor" style='background-color: #545454; margin:10px; border-radius: 10px; margin-right: 5px; padding-left: 12px; width: 65%;'/>{{valor}}
+												<input class="btn btn-primary" style="background-color:#0c8494; width: 25%;" type="button" ng-click="bid(flashwork._id)" value="Dar lance"/>
+											</div>
+										</div>
+										<div class="form-row" ng-if="tipoUsuario && !flashwork.isAuction">
+											<div class="input-group">
+												<input class="btn btn-primary" style="background-color:#0c8494;  margin-top: 35px; width: 97%;" type="button" value="Tenho interesse"/>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</link>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>

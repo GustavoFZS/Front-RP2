@@ -71,7 +71,7 @@ serviceLogin.controller('loginCtrl', function($scope, $rootScope, $location, log
   };
 
   $scope.vaiCadastrar = function(){
-    $location.path('cadastrar'); // path not hash
+    $location.path('teste'); // path not hash
   };
 
 });

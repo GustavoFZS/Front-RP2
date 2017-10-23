@@ -5,12 +5,13 @@
 <title>Perfil</title>
 <link rel="stylesheet" href="../components/bootstrap/dist/css/bootstrap.css">
 <link rel="stylesheet" href="../css/formatacao.css">
+<link rel="stylesheet" href="../css/card.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
 <script src="../components/bootstrap/dist/js/bootstrap.js"></script>
 <style>
 #profile-image1 {
-	cursor: pointer;
 
+	cursor: pointer;
 	width: 200px;
 	height: 200px;}
 
@@ -33,19 +34,20 @@
 					<input class="btn btn-primary" style="background-color:#0c8494; width: 12%;
 					height: 30px; margin-right: 5px; font-size: 16px; text-align: center; color: white;" type="button" value="Solicitar orçamento" ng-click="solicitar(tatuador)">
 				</div>
-			</div>    
+			</div>
 
 			<div class="col-md-10  col-md-offset-1" style="position: absolute; width: 200%; height: 10%; top: 23%; right: 8%;" >
 				<div class="panel-body" style = 'background-color: #545454;'>
 					<div class="col-sm-3">
-						<img alt="User Pic" src='http://tudoparahomens.com.br/wp-content/uploads/2016/07/tatuador-.jpg' id="profile-image1" class="img-circle img-responsive"> 
-						<!--Upload Image Js And Css-->
+						<img alt="User Pic" src='http://tudoparahomens.com.br/wp-content/uploads/2016/07/tatuador-.jpg' id="profile-image1" class="img-circle img-responsive" ng-click="vm.openModal('custom-modal-2')"> 
 						<br>
-						<!-- /input-group -->
 					</div>
 					<div class="col-sm-4" >
-						<h4 style="color:#00b1b1; color: white;">Flashworks</h4></span>      
-						<h4 style="color:#00b1b1; color: white;">Fotos</h4></span>      
+						<h4 style="color:#00b1b1; color: white;">Flashworks</h4>
+						<div class='list-card' ng-repeat="flashwork in lista">
+							<img alt='' src= {{flashwork.images[0].url}}>
+						</div>   
+						<h4 style="color:#00b1b1; color: white;">Fotos</h4>   
 					</div>
 					<div class="clearfix"></div>
 

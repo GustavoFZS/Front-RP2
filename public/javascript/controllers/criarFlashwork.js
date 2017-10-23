@@ -1,34 +1,33 @@
-var serviceCriaOrc = angular.module('DoMyTattoo');
+var serviceCriaFlw = angular.module('DoMyTattoo');
 
-serviceCriaOrc.service('criaOrcService', function($http) {
+serviceCriaFlw.directive('fileInput', ['$parse', function ($parse) {
+  return {
+    restrict: 'A',
+    link: function (scope, element, attributes) {
+      element.bind('change', function () {
+        $parse(attributes.fileInput)
+        .assign(scope,element[0].files)
+        scope.$apply()
+      });
+    }
+  };
+}]);
+
+serviceCriaFlw.service('criaFlwService', function($http) {
   // privado
   var message = {};
 
-  this.novoOrc = function(idCliente, myArray, tatuador, local, altura, 
-      largura, descricao, tatuadorId, callback) {
+  this.novoFlw = function(idTatuador, estilo, valor, leilao, tempo, arquivo, callback) {
 
     $http({
       method: 'POST',
-      url: 'https://do-my-tattoo.herokuapp.com/order/new',
+      url: 'https://do-my-tattoo.herokuapp.com/flashwork/createFlashwork',
       data: {
-        'customer': idCliente,
-        'place': local,
-        "images": [
-
-        ],
-        'description': descricao,
-        'size': {
-          'height': altura,
-          'width': largura
-        },
-        'negotiations': [
-          {
-            "tattooArtist": {
-              'userName' : tatuador,
-              '_id': tatuadorId
-            }
-          }
-        ]    
+        'tattooArtist': idTatuador,
+        'style': estilo,
+        'price': valor,
+        'isAuction': leilao,
+        'expireDate': tempo
       }
     }).then(function (success){
 
@@ -43,22 +42,37 @@ serviceCriaOrc.service('criaOrcService', function($http) {
     });
 
   };
+
+  this.getEstilos = function(callback) {
+
+    $http({
+      method: 'GET',
+      url: 'https://do-my-tattoo.herokuapp.com/style/getStyles',
+
+    }).then(function (success){
+
+      console.log(success);
+      callback(success, true);
+
+    },function (error){
+
+      console.log(error);
+      callback(error, false);
+
+    });
+
+  };
+
 });
 
 //--- AQUI VAI O CONTROLLER (agora mais magro)
-serviceCriaOrc.controller('criaFlwCtrl', function($scope, $rootScope, $location, criaOrcService) {
+serviceCriaFlw.controller('criaFlwCtrl', function($scope, $rootScope, $location, criaFlwService) {
 
-  $scope.idCliente = $rootScope.usuario._id;
-
-  $scope.tatuador = $rootScope.tatuador;
-
-  var myArray = new Array();
-
-  myArray.push("https://fotostatuagens.com/wp-content/uploads/2016/07/Tatuagens-de-Onda.jpg");
+  $scope.tempo = "";
 
   $scope.enviar = function(){
-    criaOrcService.novoOrc($scope.idCliente, myArray, $rootScope.tatuador.userName, $scope.local, $scope.altura, 
-      $scope.largura, $scope.descricao, $rootScope.tatuador._id, function(data, success){
+
+    criaFlwService.novoFlw($rootScope.usuario._id, $scope.estilo, $scope.valor, $scope.leilao, $scope.tempo, $scope.files, function(data, success){
 
       console.log('retornou');
 
@@ -72,8 +86,26 @@ serviceCriaOrc.controller('criaFlwCtrl', function($scope, $rootScope, $location,
     });
   };
 
-    $scope.goPagina = function(view){
+  $scope.goPagina = function(view){
         $location.path(view); // path not hash
-    };
+      };
 
-});
+      $scope.getEstilos = function(){
+        criaFlwService.getEstilos(function(response, success){
+
+          console.log('retornou');
+
+          $scope.listaEstilos = response.data;
+          if(success) {
+            console.log('sucesso');
+          }
+          else {
+            console.log('merda deu ');
+          }
+
+        });
+      };
+
+      $scope.getEstilos();
+
+    });

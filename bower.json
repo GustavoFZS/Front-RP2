@@ -6,5 +6,8 @@
     "GustavoFZS <gustavofazani95@gmail.com>"
   ],
   "license": "MIT",
-  "homepage": ""
+  "homepage": "",
+  "dependencies": {
+    "eonasdan-bootstrap-datetimepicker": "^4.17.47"
+  }
 }
