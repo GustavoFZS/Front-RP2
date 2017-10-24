@@ -2,7 +2,7 @@ var serviceEditarOrc = angular.module('DoMyTattoo');
 
 serviceEditarOrc.service('editarOrcService', function($http) {
 
-	this.setOrcamento = function(idCliente, myArray, tatuador, local, altura, 
+	this.setOrcamento = function(idCliente, tatuador, local, altura, 
 		largura, descricao, callback) {
 
 		$http({
@@ -88,7 +88,7 @@ serviceEditarOrc.controller('editarOrcCtrl', function($scope, $rootScope, $locat
 	$scope.negociacao = $rootScope.negociacao;
 
 	$scope.enviar = function(){
-		editarOrcService.setOrcamento($scope.idCliente, myArray, $scope.negociacao.tattooArtist, $scope.local, $scope.altura, 
+		editarOrcService.setOrcamento($scope.idCliente, $scope.negociacao.tattooArtist, $scope.local, $scope.altura, 
 			$scope.largura, $scope.descricao, function(data, success){
 
 				console.log('retornou');

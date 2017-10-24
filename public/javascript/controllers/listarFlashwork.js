@@ -2,58 +2,59 @@ var serviceFlwLista = angular.module('DoMyTattoo');
 
 serviceFlwLista.service('listaFlwService', function($http) {
 
-  this.getLista = function(callback) {
+ this.getLista = function(callback) {
 
-    $http({
+  $http({
 
-      method: 'GET',
-      url: 'https://do-my-tattoo.herokuapp.com/flashwork/getRandomFlashworks'
+    method: 'GET',
+    url: 'https://do-my-tattoo.herokuapp.com/flashwork/getRandomFlashworks'
 
-    }).then(function (response, success){
+  }).then(function (response, success){
 
-      callback(response, true);
+    callback(response, true);
 
-    },function (response, error){
+  },function (response, error){
 
-      callback(response, error);
+    callback(response, error);
 
-    });
+  });
 
-  };
+};
 
-  this.makeBid = function(flashworkId, userId, price, callback) {
+this.makeBid = function(flashworkId, userId, price, callback) {
 
-    $http({
+  $http({
 
-      method: 'POST',
-      url: 'https://do-my-tattoo.herokuapp.com/flashwork/makeBid',
-      data : {
-        "flashworkId": flashworkId,
-        "bid": {
-          "user": userId,
-          "price": price
-        }
+    method: 'POST',
+    url: 'https://do-my-tattoo.herokuapp.com/flashwork/makeBid',
+    data : {
+      "flashworkId": flashworkId,
+      "bid": {
+        "user": userId,
+        "price": price
       }
+    }
 
-    }).then(function (response, success){
+  }).then(function (response, success){
 
-      callback(response, true);
+    callback(response, true);
 
-    },function (response, error){
+  },function (response, error){
 
-      callback(response, error);
+    callback(response, error);
 
-    });
+  });
 
-  };
+};
 
 });
 
 //--- AQUI VAI O CONTROLLER (agora mais magro)
 serviceFlwLista.controller('listaFlwCtrl', function($scope, $rootScope, $location, listaFlwService) {
 
-  $scope.valor = 12;
   $scope.idCliente = $rootScope.usuario._id;
+
+  $scope.valor = "";
 
   $scope.listar = function(){
 
@@ -80,14 +81,16 @@ serviceFlwLista.controller('listaFlwCtrl', function($scope, $rootScope, $locatio
 
   };
 
-  $scope.bid = function(flashworkId){
+  $scope.bid = function(flashworkId, valor){
 
-    listaFlwService.makeBid(flashworkId ,$scope.idCliente, $scope.valor, function(response, success){
+    console.log('sucesso' +valor);
+
+    listaFlwService.makeBid(flashworkId ,$scope.idCliente, valor, function(response, success){
       console.log('retornou');
 
       if(success) {
 
-        console.log('sucesso' + $scope.valor);
+        console.log('sucesso' + valor);
 
       }
       else {
@@ -110,15 +113,15 @@ serviceFlwLista.controller('listaFlwCtrl', function($scope, $rootScope, $locatio
         $location.path(view); // path not hash
       };
 
-  
-  $scope.perfil = function(tatuador){
 
-    console.log(tatuador);
-    $rootScope.tatuador = tatuador;
+      $scope.perfil = function(tatuador){
+
+        console.log(tatuador);
+        $rootScope.tatuador = tatuador;
     $location.path('perfil'); // path not hash
 
   };
 
-      $scope.listar();
+  $scope.listar();
 
-    });
+});
