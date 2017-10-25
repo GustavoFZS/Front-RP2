@@ -5,7 +5,7 @@ serviceCadastro.service('cadastroService', function($http) {
   var message = {};
 
   this.getCadastro = function(name, user, email, phone, what,
-  instagram, password, tipo, callback) {
+    instagram, password, tipo, bio, pais, estado, cidade, callback) {
 
     console.log(tipo + " teste");
 
@@ -22,7 +22,11 @@ serviceCadastro.service('cadastroService', function($http) {
           'number': phone,
           'whatsapp': what
         },
-        'instagram': instagram
+        'instagram': instagram,
+        'bio': bio,
+        'country': pais,
+        'state': estado,
+        'city': cidade
       }
     }).then(function (success){
 
@@ -67,13 +71,14 @@ serviceCadastro.controller('cadastroCtrl', function($scope, $rootScope, $locatio
 
     }
 
-    cadastroService.getCadastro($scope.name, $scope.user, $scope.email, $scope.phone,
-    $scope.what, $scope.instagram, $scope.password,  $scope.tipoFt, function(data, success){
-      console.log('retornou');
+    cadastroService.getCadastro($scope.name, $scope.user, $scope.email, $scope.phone, $scope.what,
+      $scope.instagram, $scope.password,  $scope.tipoFt, $scope.bio, $scope.pais, $scope.estado,
+      $scope.cidade, function(data, success){
+        console.log('retornou');
 
-      if(success) {
-        console.log('sucesso');
-        $rootScope.usuario = $scope;
+        if(success) {
+          console.log('sucesso');
+          $rootScope.usuario = $scope;
         $location.path('login'); // path not hash
       }
       else {

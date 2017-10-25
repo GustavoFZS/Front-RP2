@@ -4,20 +4,27 @@ body {
   background-size: 100%;
   color: white;
   background-attachment: fixed;
+  font-family: "Calibri", Times;
+}
+
+div {
+
+  border-radius: 10px;
+
 }
 
 .alinhar .img-responsive {
-    margin: 0 auto;
+  margin: 0 auto;
 }
 
 .navbar {
-    position: relative;
+  position: relative;
 }
 
 .navbar-brand {
-    position: absolute;
-    left: 50%;
-    margin-left: -50px !important;  /* 50% of your logo width */
-    display: block;
+  position: absolute;
+  left: 50%;
+  margin-left: -50px !important;  /* 50% of your logo width */
+  display: block;
 }
 

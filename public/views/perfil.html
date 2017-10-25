@@ -42,12 +42,13 @@
 						<img alt="User Pic" src='http://tudoparahomens.com.br/wp-content/uploads/2016/07/tatuador-.jpg' id="profile-image1" class="img-circle img-responsive" ng-click="vm.openModal('custom-modal-2')"> 
 						<br>
 					</div>
-					<div class="col-sm-4" >
-						<h4 style="color:#00b1b1; color: white;">Flashworks</h4>
+
+					<h4 style="color:#00b1b1; color: white;">Flashworks</h4>
+					<div class="col-md-4">
 						<div class='list-card' ng-repeat="flashwork in lista">
-							<img alt='' src= {{flashwork.images[0].url}}>
-						</div>   
-						<h4 style="color:#00b1b1; color: white;">Fotos</h4>   
+							<img src="{{flashwork.images[0].url}}" class="img-responsive">
+							<h4 style="color:#00b1b1; color: white;">Fotos</h4>   
+						</div>
 					</div>
 					<div class="clearfix"></div>
 
@@ -66,8 +67,21 @@
 					<div class="col-sm-6" style="font-size: 18px; color: white;">{{tatuador.email}}</div>
 					<div class="clearfix"></div>
 
+					<div class="col-sm-6" style="font-size: 18px; color: white;">{{tatuador.country}}</div>
+					<div class="clearfix"></div>
+
+					<div class="col-sm-6" style="font-size: 18px; color: white;">{{tatuador.state}}</div>
+					<div class="clearfix"></div>
+
+					<div class="col-sm-6" style="font-size: 18px; color: white;">{{tatuador.city}}</div>
+					<div class="clearfix"></div>
+
 					<div class="col-sm-3" style="text-align: center; font-size: 24px; color: white; margin: 0 0 2% 0;">Bio</div>
 					<div class="clearfix"></div>
+
+					<div class="col-sm-6" style="font-size: 18px; color: white;">{{tatuador.bio}}</div>
+					<div class="clearfix"></div>
+
 				</div>
 			</div>
 		</div>
