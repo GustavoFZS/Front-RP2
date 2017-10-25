@@ -39,8 +39,8 @@
                           <label class='list-text2' style='color: white; font-size: 16px;' for="valor">Valor do orçamento: {{negociacao.price}}</label>
                           <div class="input-group">
                             <span class="input-group-addon" ng-if="!tipoUsuario">R$</span>
-                            <input type="number" min="0" step="10" data-number-to-fixed="2" data-number-stepfactor="100" class="button-g" id="valor" style='margin-right: 5px;' ng-if="!tipoUsuario"/>
-                            <input class="btn btn-primary" style="background-color:#0c8494;  margin-right: 5px;" type="button" value="Responder" ng-if="!tipoUsuario">
+                            <input type="number" min="0" step="10" data-number-to-fixed="2" data-number-stepfactor="100" class="button-g" id="valor" style='margin-right: 5px;' ng-if="!tipoUsuario" ng-model="negociacao.valor"/>
+                            <input class="btn btn-primary" style="background-color:#0c8494;  margin-right: 5px;" type="button" value="Responder" ng-if="!tipoUsuario" ng-click="responder(orcamento, negociacao)">
                             <input class="btn btn-primary" style="background-color:#0c8494;  margin-right: 5px;" type="button" value="Detalhes" ng-click="editar(orcamento, negociacao)">
                           </div>
                         </div>

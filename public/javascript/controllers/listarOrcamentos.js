@@ -46,6 +46,26 @@ serviceOrcLista.service('listaOrcService', function($http) {
 
   };
 
+  this.setPreco = function(orderID, negociacaoID, preco, callback) {
+
+    $http({
+      method: 'PUT',
+      url: 'https://do-my-tattoo.herokuapp.com/order/tattooArtistSetPrice/' + orderID + '/' + negociacaoID + '/' + preco,
+
+    }).then(function (success){
+
+      console.log(success);
+      callback(success, true);
+
+    },function (error){
+
+      console.log(error);
+      callback(error, false);
+
+    });
+
+  };
+
 });
 
 //--- AQUI VAI O CONTROLLER (agora mais magro)
@@ -76,7 +96,7 @@ serviceOrcLista.controller('listaOrcCtrl', function($scope, $rootScope, $locatio
 
     } else {
 
-        listaOrcService.getLista2($scope.idCliente, function(response, success){
+      listaOrcService.getLista2($scope.idCliente, function(response, success){
         console.log('retornou');
 
         if(success) {
@@ -105,10 +125,25 @@ serviceOrcLista.controller('listaOrcCtrl', function($scope, $rootScope, $locatio
 
   };
 
-  $scope.goPagina = function(view){
-        $location.path(view); // path not hash
+  $scope.responder = function(orcamento, negociacao){
+    listaOrcService.setPreco(orcamento._id , negociacao._id, negociacao.valor, function(data, success){
+
+      console.log('retornou');
+
+      if(success) {
+        console.log('sucesso');
+      }
+      else {
+        console.log('merda deu ');
+      }
+
+    });
   };
 
-  $scope.listar();
-  
-});
+  $scope.goPagina = function(view){
+        $location.path(view); // path not hash
+      };
+
+      $scope.listar();
+
+    });
