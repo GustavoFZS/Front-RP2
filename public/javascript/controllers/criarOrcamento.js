@@ -64,6 +64,7 @@ serviceCriaOrc.controller('criaOrcCtrl', function($scope, $rootScope, $location,
 
       if(success) {
         console.log('sucesso');
+        alert("Orçamento criado!");
       }
       else {
         console.log('merda deu ');

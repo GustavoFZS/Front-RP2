@@ -13,78 +13,100 @@
 
 	cursor: pointer;
 	width: 200px;
-	height: 200px;}
+	height: 200px;
+
+}
+
+.info1 {
+
+	text-align: center;
+	font-size: 24px;
+	color: white;
+
+}
+
+.info2 {
+
+	text-align: left;
+	font-size: 18px;
+	color: white;
+
+}
 
 </style>
 </head>
 <body ng-controller="perfilCtrl">
 
 	<div ng-include="'../views/navbar.html'" ng-controller="navbarCtrl"></div>
+
+
+	<div style="position: absolute; width: 100%; height: 100px; top: 15%; right: 32%;">
+		<div class="main-login main-center" style = 'text-align: center; color: white;'>
+			<font size="6">Perfil tatuador</font> 
+		</div>
+	</div>
+
+	<div style="position: absolute; width: 110%; top: 17%; left: 29%;" ng-controller="listaTatuadorCtrl">
+		<div class="main-login main-center" style = 'text-align: center; '>
+			<input class="btn btn-primary" style="background-color:#0c8494; width: 12%;
+			height: 30px; margin-right: 5px; font-size: 16px; text-align: center; color: white;" type="button" value="Solicitar orçamento" ng-click="solicitar(tatuador)">
+		</div>
+	</div>
+
 	<div class="container">
-		<div class="row">
-
-			<div style="position: absolute; width: 100%; height: 100px; top: 15%; right: 32%;">
-				<div class="main-login main-center" style = 'text-align: center; color: white;'>
-					<font size="6">Perfil tatuador</font> 
-				</div>
-			</div>
-
-			<div style="position: absolute; width: 110%; top: 17%; left: 29%;" ng-controller="listaTatuadorCtrl">
-				<div class="main-login main-center" style = 'text-align: center; '>
-					<input class="btn btn-primary" style="background-color:#0c8494; width: 12%;
-					height: 30px; margin-right: 5px; font-size: 16px; text-align: center; color: white;" type="button" value="Solicitar orçamento" ng-click="solicitar(tatuador)">
-				</div>
-			</div>
-
-			<div class="col-md-10  col-md-offset-1" style="position: absolute; width: 200%; height: 10%; top: 23%; right: 8%;" >
-				<div class="panel-body" style = 'background-color: #545454;'>
-					<div class="col-sm-3">
-						<img alt="User Pic" src='http://tudoparahomens.com.br/wp-content/uploads/2016/07/tatuador-.jpg' id="profile-image1" class="img-circle img-responsive" ng-click="vm.openModal('custom-modal-2')"> 
-						<br>
-					</div>
-
-					<h4 style="color:#00b1b1; color: white;">Flashworks</h4>
-					<div class="col-md-4">
+		<div class="col-md-10" style='position: absolute; background-color:#2E2E2E; height:610px; top:25% ; left: 12%;  width: 78%;'>
+			<div style="position: absolute; right: 20%;" >
+				<div class="panel-body">
+					<h4 style="color: white;">Flashworks</h4>
+					<div class="row">
 						<div class='list-card' ng-repeat="flashwork in lista">
 							<img src="{{flashwork.images[0].url}}" class="img-responsive">
-							<h4 style="color:#00b1b1; color: white;">Fotos</h4>   
 						</div>
 					</div>
+				</div>
+				<h4 style="color: white;">Fotos</h4>   
+			</div>
+
+
+			<div class="col-md-3" align="center" style="position: absolute; right: 76.5%;" >
+				<div class="panel-body" style = 'background-color: #545454; background-color:rgba(255,255,255,0.1); width: 124%; height:610px;'>
+					<img alt="User Pic" src='http://tudoparahomens.com.br/wp-content/uploads/2016/07/tatuador-.jpg' id="profile-image1" class="img-circle img-responsive" ng-click="vm.openModal('custom-modal-2')"> 
+					<br>
+
+					<div class="col-sm-3 info1">{{tatuador.userName}}</div>
 					<div class="clearfix"></div>
 
-					<div class="col-sm-3" style="text-align: center; font-size: 32px; color: white; margin: 0 0 2% 0;">{{tatuador.userName}}</div>
+					<div class="col-sm-6 info2">{{tatuador.name}}</div>
 					<div class="clearfix"></div>
 
-					<div class="col-sm-6" style="font-size: 18px; color: white;"> {{tatuador.name}}</div>
+					<div class="col-sm-6 info2">{{tatuador.instagram}}</div>
 					<div class="clearfix"></div>
 
-					<div class="col-sm-6" style="font-size: 18px; color: white;">{{tatuador.instagram}}</div>
+					<div class="col-sm-6 info2">{{tatuador.phone.number}}</div>
 					<div class="clearfix"></div>
 
-					<div class="col-sm-6" style="font-size: 18px; color: white;">{{tatuador.phone.number}}</div>
+					<div class="col-sm-6 info2">{{tatuador.email}}</div>
 					<div class="clearfix"></div>
 
-					<div class="col-sm-6" style="font-size: 18px; color: white;">{{tatuador.email}}</div>
+					<div class="col-sm-6 info2">{{tatuador.country}}</div>
 					<div class="clearfix"></div>
 
-					<div class="col-sm-6" style="font-size: 18px; color: white;">{{tatuador.country}}</div>
+					<div class="col-sm-6 info2">{{tatuador.state}}</div>
 					<div class="clearfix"></div>
 
-					<div class="col-sm-6" style="font-size: 18px; color: white;">{{tatuador.state}}</div>
+					<div class="col-sm-6 info2">{{tatuador.city}}</div>
 					<div class="clearfix"></div>
 
-					<div class="col-sm-6" style="font-size: 18px; color: white;">{{tatuador.city}}</div>
+					<div class="col-sm-3 info1">Bio</div>
 					<div class="clearfix"></div>
 
-					<div class="col-sm-3" style="text-align: center; font-size: 24px; color: white; margin: 0 0 2% 0;">Bio</div>
-					<div class="clearfix"></div>
-
-					<div class="col-sm-6" style="font-size: 18px; color: white;">{{tatuador.bio}}</div>
+					<div class="col-sm-6 info2">{{tatuador.bio}}</div>
 					<div class="clearfix"></div>
 
 				</div>
 			</div>
 		</div>
 	</div>
+
 </body>
 </html>

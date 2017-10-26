@@ -91,6 +91,7 @@ serviceFlwLista.controller('listaFlwCtrl', function($scope, $rootScope, $locatio
       if(success) {
 
         console.log('sucesso' + valor);
+        alert("Lance efetuado!");
 
       }
       else {

@@ -56,6 +56,7 @@ serviceOrcLista.service('listaOrcService', function($http) {
 
       console.log(success);
       callback(success, true);
+      alert("Respondido!");
 
     },function (error){
 

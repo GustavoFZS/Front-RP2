@@ -78,6 +78,7 @@ serviceCriaFlw.controller('criaFlwCtrl', function($scope, $rootScope, $location,
 
       if(success) {
         console.log('sucesso');
+        alert("Flashwork criado!");
       }
       else {
         console.log('merda deu ');

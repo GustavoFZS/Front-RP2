@@ -96,6 +96,7 @@ serviceEditarOrc.controller('editarOrcCtrl', function($scope, $rootScope, $locat
 				if(success) {
 					console.log('sucesso');
 					$rootScope.orcamento = $scope;
+					alert("Enviado!");
 				}
 				else {
 					console.log('merda deu ');
@@ -111,6 +112,7 @@ serviceEditarOrc.controller('editarOrcCtrl', function($scope, $rootScope, $locat
 
 			if(success) {
 				console.log('sucesso');
+				alert("respondido!");
 			}
 			else {
 				console.log('merda deu ');
@@ -126,6 +128,7 @@ serviceEditarOrc.controller('editarOrcCtrl', function($scope, $rootScope, $locat
 			if(success) {
 				console.log('sucesso');
 				$scope.mensagem = '';
+				alert("Comentário enviado!");
 			}
 			else {
 				console.log('merda deu ');
