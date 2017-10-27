@@ -27,7 +27,8 @@ serviceCriaFlw.service('criaFlwService', function($http) {
         'style': estilo,
         'price': valor,
         'isAuction': leilao,
-        'expireDate': tempo
+        'expireDate': tempo,
+        'photos': arquivo
       }
     }).then(function (success){
 
@@ -72,7 +73,7 @@ serviceCriaFlw.controller('criaFlwCtrl', function($scope, $rootScope, $location,
 
   $scope.enviar = function(){
 
-    criaFlwService.novoFlw($rootScope.usuario._id, $scope.estilo, $scope.valor, $scope.leilao, $scope.tempo, $scope.files, function(data, success){
+    criaFlwService.novoFlw($rootScope.usuario._id, $scope.estilo, $scope.valor, $scope.leilao, $scope.tempo, $scope.files[0], function(data, success){
 
       console.log('retornou');
 

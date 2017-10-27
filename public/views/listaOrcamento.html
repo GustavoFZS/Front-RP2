@@ -31,29 +31,29 @@
                       <div class='list-label'>Novo orçamento</div>
                       <img alt='' src='http://3.bp.blogspot.com/-3hi6gLGk5vA/UxjswjUbn2I/AAAAAAAAFIk/Qonb8_eiQqw/s1600/desenhos-de-coruja-para-tatuar.jpg'>
                       <div class='list-details'>
-                        <div class='list-name' style='color: white;'>Tatuador: {{negociacao.tattooArtist.name}}</div>
-                        <div class='list-text' style='font-size: 12px;'>Local do corpo: {{orcamento.place}}</div>
-                        <div class='list-text' style='font-size: 12px;'>Altura: {{orcamento.size.height}}</div>
-                        <div class='list-text' style='font-size: 12px;'>Largura: {{orcamento.size.width}}</div>
-                        <div class="form-row">
-                          <label class='list-text2' style='color: white; font-size: 16px;' for="valor">Valor do orçamento: {{negociacao.price}}</label>
-                          <div class="input-group">
-                            <span class="input-group-addon" ng-if="!tipoUsuario">R$</span>
-                            <input type="number" min="0" step="10" data-number-to-fixed="2" data-number-stepfactor="100" class="button-g" id="valor" style='margin-right: 5px;' ng-if="!tipoUsuario" ng-model="negociacao.valor"/>
-                            <input class="btn btn-primary" style="background-color:#0c8494;  margin-right: 5px;" type="button" value="Responder" ng-if="!tipoUsuario" ng-click="responder(orcamento, negociacao)">
-                            <input class="btn btn-primary" style="background-color:#0c8494;  margin-right: 5px;" type="button" value="Detalhes" ng-click="editar(orcamento, negociacao)">
-                          </div>
+                        <div class='list-name efeito'><p class='alinhado'>Tatuador: {{negociacao.tattooArtist.name}}</div>
+                          <div class='list-text efeito'><p class='alinhado'>Local do corpo: {{orcamento.place}}</div>
+                            <div class='list-text efeito'><p class='alinhado'> Altura: {{orcamento.size.height}}</div>
+                              <div class='list-text efeito'><p class='alinhado'> Largura: {{orcamento.size.width}}</div>
+                                <div class='list-text efeito'><p class='alinhado2'> Valor do orçamento: {{negociacao.price}}</div>
+                                  <div class="form-row">
+                                    <div class="input-group">
+                                      <span class="input-group-addon" ng-if="!tipoUsuario">R$</span>
+                                      <input type="number" min="0" step="10" data-number-to-fixed="2" data-number-stepfactor="100" class="button-g" id="valor" style='margin-right: 5px;' ng-if="!tipoUsuario" ng-model="negociacao.valor"/>
+                                      <input class="btn btn-primary" style="background-color:#0c8494;  margin-right: 5px;" type="button" value="Responder" ng-if="!tipoUsuario" ng-click="responder(orcamento, negociacao)">
+                                      <input class="btn btn-primary" style="background-color:#0c8494;  margin-right: 5px;" type="button" value="Detalhes" ng-click="editar(orcamento, negociacao)">
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </link>
                         </div>
                       </div>
                     </div>
                   </div>
-                </link>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</body>
-</html>
+          </body>
+          </html>

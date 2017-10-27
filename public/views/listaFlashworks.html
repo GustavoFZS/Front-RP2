@@ -5,40 +5,6 @@
 	<link rel="stylesheet" href="../css/card.css">
 	<link rel="stylesheet" href="../css/formatacao.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
-	<style>
-	div.efeito {
-
-		display: table;
-		background-color:rgba(0,0,0,0.5);
-		border-radius: 10px;
-		position: relative;
-		margin:10px;
-		width: 70%;
-
-	}
-	p.alinhado {
-
-		font-size: 14px;
-		color: white;
-		display: table-cell;
-		vertical-align: middle;
-		font-family: "Calibri", Times;
-		text-align: left;
-		padding-left: 12px
-
-	}
-	p.alinhado2 {
-
-		font-size: 23px;
-		color: white;
-		display: table-cell;
-		vertical-align: middle;
-		font-family: "Calibri", Times;
-		text-align: left;
-		padding-left: 12px
-
-	}
-</style>
 </head>
 
 <body ng-controller="listaFlwCtrl">
@@ -60,7 +26,7 @@
 							<div class='container' style = 'background-color: #545454; margin:10px; border-radius: 10px;'>
 								<div class='list-card'>
 									<div class='list-label'>Novo flashwork</div>
-									<img alt='' src= {{flashwork.images[0].url}}>
+									<img alt='' src= 'https://i.pinimg.com/originals/9f/c4/cd/9fc4cd7f8a99c70a2087dae9997f29b7.jpg'>
 									<div class='list-details'>
 										<div class='efeito' ng-if="flashwork.isAuction"><p class='alinhado2'>Último lance: {{flashwork.currentBid.price}}</p></div>
 										<div class='efeito' ng-if="!flashwork.isAuction"><p class='alinhado2'>Preco: {{flashwork.price}}</p></div>
@@ -69,7 +35,7 @@
 										<div class='efeito' ng-if="flashwork.isAuction"><p class='alinhado'"> Data limite: {{formataData(flashwork.expireDate)}}</p></div>
 										<div class="form-row" ng-if="tipoUsuario && flashwork.isAuction">
 											<div class="input-group">
-												<input type="number" min="0" step="10" data-number-to-fixed="2" data-number-stepfactor="100" class="button-g" placeholder="R$" id="preco" ng-model="flashwork.valor" style='background-color: #545454; margin:10px; border-radius: 10px; margin-right: 5px; padding-left: 12px; width: 65%;'/>{{valor}}
+												<input type="number" min="0" step="10" data-number-to-fixed="2" data-number-stepfactor="100" class="button-g" placeholder="R$" id="preco" ng-model="flashwork.valor" style='background-color: #545454; margin:10px; border-radius: 10px; margin-right: 5px; padding-left: 12px; width: 65%;'/>
 												<input class="btn btn-primary" style="background-color:#0c8494; width: 25%;" type="button" ng-click="bid(flashwork._id, flashwork.valor)" value="Dar lance"/>
 											</div>
 										</div>

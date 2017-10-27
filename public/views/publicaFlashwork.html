@@ -60,9 +60,9 @@
 							<label>Selecione as imagens: </label>
 						</div>
 						<div>
-							<input type="file" file-input="files" />
+							<input type="file" file-input="files" ng-model="files"/>
 							<ul>
-								<li ng-repeat="file in files">{{files}}</li>
+								<li ng-repeat="file in files">{{file}}</li>
 							</ul>
 						</div>
 					</div>
