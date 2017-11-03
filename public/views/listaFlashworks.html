@@ -26,7 +26,7 @@
 							<div class='container' style = 'background-color: #545454; margin:10px; border-radius: 10px;'>
 								<div class='list-card'>
 									<div class='list-label'>Novo flashwork</div>
-									<img alt='' src= 'https://i.pinimg.com/originals/9f/c4/cd/9fc4cd7f8a99c70a2087dae9997f29b7.jpg'>
+									<img alt='' src= {{flashwork.images[0].url}}>
 									<div class='list-details'>
 										<div class='efeito' ng-if="flashwork.isAuction"><p class='alinhado2'>Último lance: {{flashwork.currentBid.price}}</p></div>
 										<div class='efeito' ng-if="!flashwork.isAuction"><p class='alinhado2'>Preco: {{flashwork.price}}</p></div>

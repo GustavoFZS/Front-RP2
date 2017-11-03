@@ -1,79 +1,86 @@
 var serviceCriaFlw = angular.module('DoMyTattoo');
 
-serviceCriaFlw.directive('fileInput', ['$parse', function ($parse) {
-  return {
-    restrict: 'A',
-    link: function (scope, element, attributes) {
-      element.bind('change', function () {
-        $parse(attributes.fileInput)
-        .assign(scope,element[0].files)
-        scope.$apply()
-      });
-    }
+serviceCriaFlw.directive('ngFiles', ['$parse', function ($parse) {
+
+  function fn_link(scope, element, attrs) {
+    var onChange = $parse(attrs.ngFiles);
+    element.on('change', function (event) {
+      onChange(scope, { $files: event.target.files });
+    });
   };
-}]);
+
+  return {
+    link: fn_link
+  }
+} ])
 
 serviceCriaFlw.service('criaFlwService', function($http) {
   // privado
   var message = {};
 
-  this.novoFlw = function(idTatuador, estilo, valor, leilao, tempo, arquivo, callback) {
+  this.novoFlw = function(dataForm, callback) {
 
     $http({
       method: 'POST',
       url: 'https://do-my-tattoo.herokuapp.com/flashwork/createFlashwork',
-      data: {
-        'tattooArtist': idTatuador,
-        'style': estilo,
-        'price': valor,
-        'isAuction': leilao,
-        'expireDate': tempo,
-        'photos': arquivo
-      }
-    }).then(function (success){
+      data: dataForm,
+      headers: { 'Content-Type': undefined},
+      transformRequest: angular.identity
+      }).then(function (success){
 
-      console.log(success);
-      callback(success, true);
+        console.log(success);
+        callback(success, true);
 
-    },function (error){
+      },function (error){
 
-      console.log(error);
-      callback(error, false);
+        console.log(error);
+        callback(error, false);
 
-    });
+      });
 
-  };
+    };
 
-  this.getEstilos = function(callback) {
+    this.getEstilos = function(callback) {
 
-    $http({
-      method: 'GET',
-      url: 'https://do-my-tattoo.herokuapp.com/style/getStyles',
+      $http({
+        method: 'GET',
+        url: 'https://do-my-tattoo.herokuapp.com/style/getStyles',
 
-    }).then(function (success){
+      }).then(function (success){
 
-      console.log(success);
-      callback(success, true);
+        console.log(success);
+        callback(success, true);
 
-    },function (error){
+      },function (error){
 
-      console.log(error);
-      callback(error, false);
+        console.log(error);
+        callback(error, false);
 
-    });
+      });
 
-  };
+    };
 
-});
+  });
 
 //--- AQUI VAI O CONTROLLER (agora mais magro)
 serviceCriaFlw.controller('criaFlwCtrl', function($scope, $rootScope, $location, criaFlwService) {
 
   $scope.tempo = "";
+  $scope.imagens;
+  var formdata = new FormData();
 
   $scope.enviar = function(){
 
-    criaFlwService.novoFlw($rootScope.usuario._id, $scope.estilo, $scope.valor, $scope.leilao, $scope.tempo, $scope.files[0], function(data, success){
+    formdata.append('tattooArtist', $rootScope.usuario._id);
+    formdata.append('style', $scope.estilo._id);
+    formdata.append('price', $scope.valor);
+    formdata.append('isAuction', $scope.leilao);
+    formdata.append('expireDate', $scope.tempo);
+    formdata.append('photos', $scope.imagens);
+
+    console.log(formdata + " " + $scope.estilo._id + " " + $scope.valor + " " + $rootScope.usuario._id);
+
+    criaFlwService.novoFlw(formdata, function(data, success){
 
       console.log('retornou');
 
@@ -106,6 +113,12 @@ serviceCriaFlw.controller('criaFlwCtrl', function($scope, $rootScope, $location,
           }
 
         });
+      };
+
+      $scope.getTheFiles = function ($files) {
+
+        $scope.imagens = $files['0'];
+
       };
 
       $scope.getEstilos();

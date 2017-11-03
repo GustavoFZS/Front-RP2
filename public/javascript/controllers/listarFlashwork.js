@@ -21,6 +21,26 @@ serviceFlwLista.service('listaFlwService', function($http) {
 
 };
 
+this.getResultado = function(estilo, callback) {
+
+  $http({
+
+    method: 'GET',
+    url: 'https://do-my-tattoo.herokuapp.com/search/searchFlashworks/' + estilo
+
+  }).then(function (response, success){
+
+    callback(response, true);
+
+  },function (response, error){
+
+    callback(response, error);
+
+  });
+
+};
+
+
 this.makeBid = function(flashworkId, userId, price, callback) {
 
   $http({
@@ -61,6 +81,31 @@ serviceFlwLista.controller('listaFlwCtrl', function($scope, $rootScope, $locatio
     if($rootScope.tipoUsuario){
 
       listaFlwService.getLista(function(response, success){
+        console.log('retornou');
+
+        if(success) {
+
+          $scope.lista = response.data;
+          console.log('sucesso' + response.data + ' ' + response.data._id + '');
+
+        }
+        else {
+
+          console.log('deu ruim');
+
+        }
+
+      });
+
+    } 
+
+  };
+
+  $scope.getResultado = function(estilo){
+
+    if($rootScope.tipoUsuario){
+
+      listaFlwService.getResultado(estilo._id, function(response, success){
         console.log('retornou');
 
         if(success) {
@@ -123,6 +168,15 @@ serviceFlwLista.controller('listaFlwCtrl', function($scope, $rootScope, $locatio
 
   };
 
-  $scope.listar();
+  if($rootScope.estilo == ""){
+
+    $scope.listar();
+
+  } else {
+
+    $scope.getResultado($rootScope.estilo);
+    $rootScope.estilo = ""
+
+  }
 
 });

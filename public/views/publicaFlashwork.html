@@ -29,7 +29,7 @@
 
 					<div class="panel-heading">
 						<div class="row-fluid user-row">
-							<select class="form-control resizedTextbox" name="Estilos" ng-model="estilo" style ="margin-top:5px;" ng-options="est.name for est in listaEstilos" ng-init="Escolha um estilo" required>teste
+							<select class="form-control resizedTextbox" name="Estilos" ng-model="estilo" style ="margin-top:5px;" ng-options="est.name for est in listaEstilos" required>
 							</select>
 						</div>
 					</div>
@@ -60,10 +60,8 @@
 							<label>Selecione as imagens: </label>
 						</div>
 						<div>
-							<input type="file" file-input="files" ng-model="files"/>
-							<ul>
-								<li ng-repeat="file in files">{{file}}</li>
-							</ul>
+							<input type="file" id="file1" name="file" multiple
+							ng-files="getTheFiles($files)" />{{formdata.file}}
 						</div>
 					</div>
 
@@ -72,7 +70,6 @@
 						<a style="background-color:#0c8494; margin-bottom: 5px" type="button" id="logingin-button" class="btn btn-primary btn-lg btn-block login-button" ng-click="enviar()">Publicar flashwork</a>
 					</div>
 					<br></br>
-
 				</div>
 
 			</div>
