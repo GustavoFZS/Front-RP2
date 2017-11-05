@@ -136,7 +136,11 @@ serviceFlwLista.controller('listaFlwCtrl', function($scope, $rootScope, $locatio
       if(success) {
 
         console.log('sucesso' + valor);
-        alert("Lance efetuado!");
+        swal(
+          'Lance efetuado!',
+          'Você está vencendo esse leilão.',
+          'success'
+          );
 
       }
       else {

@@ -27,11 +27,6 @@
     controller : 'criaOrcCtrl'
   })
 
-   .when('/responder_orcamento', {
-    templateUrl : '/views/respondeOrcamento.html',
-    controller : 'editarOrcCtrl'
-  })
-
    .when('/editar_orcamento', {
     templateUrl : '/views/editaOrcamento.html',
     controller : 'editarOrcCtrl'

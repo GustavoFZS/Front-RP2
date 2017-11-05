@@ -44,7 +44,7 @@ serviceLogin.controller('loginCtrl', function($scope, $rootScope, $location, log
       console.log('retornou');
 
       if(success) {
-
+        
         console.log('sucesso' + response.data + ' ' + response.data._id + '');
 
         $rootScope.usuario = response.data;

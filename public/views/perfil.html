@@ -5,6 +5,7 @@
 <title>Perfil</title>
 <link rel="stylesheet" href="../components/bootstrap/dist/css/bootstrap.css">
 <link rel="stylesheet" href="../css/formatacao.css">
+<link rel="stylesheet" href="../css/perfil.css">
 <link rel="stylesheet" href="../css/card.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
 <script src="../components/bootstrap/dist/js/bootstrap.js"></script>
@@ -54,80 +55,81 @@
 	</div>
 
 	<div class="container">
-		<div class="col-md-10" style='position: absolute; background-color:#2E2E2E; height:850px; top:25% ; left: 12%;  width: 78%;'>
-			<div style="position: absolute; left: 28%;" >
-				<div class="panel-body">
-					<h4 style="color: white;">Flashworks</h4>
-					<div class="row">
-						<div class='list-card' ng-repeat="flashwork in lista">
-							<img src="{{flashwork.images[0].url}}" class="img-responsive">
+		<div class="col-md-10" style='position: absolute; background-color:#2E2E2E; height:850px; top:25% ; left: 8%;  width: 90%;'>
+			<div style='position: absolute; height:400px; width: 98%; top:5%; left: 28%;'>
+				<h4 style="color: white; margin: 10px;">Flashworks</h>
+					<div class="pre-scrollable">
+						<div class="panel-body">
+							<div class="row">
+								<div class='imagem_perfil' ng-repeat="flashwork in lista">
+									<img src="{{flashwork.images[0].url}}" class="img-responsive">
+								</div>
+							</div>
 						</div>
 					</div>
+					<h4 style="color: white; margin: 10px;">Fotos</h4>   
 				</div>
-				<h4 style="color: white;">Fotos</h4>   
-			</div>
 
+				<div class="col-md-3" align="center" style="position: absolute; right: 76.5%;" >
+					<div class="panel-body" style = 'background-color: #545454; background-color:rgba(255,255,255,0.1); width: 124%; height:850px;'>
+						<img alt="User Pic" src='http://tudoparahomens.com.br/wp-content/uploads/2016/07/tatuador-.jpg' id="profile-image1" class="img-circle img-responsive" ng-click="vm.openModal('custom-modal-2')"> 
+						<br>
 
-			<div class="col-md-3" align="center" style="position: absolute; right: 76.5%;" >
-				<div class="panel-body" style = 'background-color: #545454; background-color:rgba(255,255,255,0.1); width: 124%; height:850px;'>
-					<img alt="User Pic" src='http://tudoparahomens.com.br/wp-content/uploads/2016/07/tatuador-.jpg' id="profile-image1" class="img-circle img-responsive" ng-click="vm.openModal('custom-modal-2')"> 
-					<br>
+						<div class="col-sm-3 info1 efeito2" style="text-align: left;">{{tatuador.userName}}</div>
+						<div class="clearfix"></div>
 
-					<div class="col-sm-3 info1 efeito2" style="text-align: left;">{{tatuador.userName}}</div>
-					<div class="clearfix"></div>
+						<label class="col-sm-6 info2" style='color: white; font-size: 12px;'> Nome: </label>
+						<div class="clearfix"></div>
 
-					<label class="col-sm-6 info2" style='color: white; font-size: 12px;'> Nome: </label>
-					<div class="clearfix"></div>
+						<div class="col-sm-6 info2 efeito2">{{tatuador.name}}</div>
+						<div class="clearfix"></div>
 
-					<div class="col-sm-6 info2 efeito2">{{tatuador.name}}</div>
-					<div class="clearfix"></div>
+						<label class="col-sm-6 info2" style='color: white; font-size: 12px;'> Instagram: </label>
+						<div class="clearfix"></div>
 
-					<label class="col-sm-6 info2" style='color: white; font-size: 12px;'> Instagram: </label>
-					<div class="clearfix"></div>
+						<div class="col-sm-6 info2 efeito2">{{tatuador.instagram}}</div>
+						<div class="clearfix"></div>
 
-					<div class="col-sm-6 info2 efeito2">{{tatuador.instagram}}</div>
-					<div class="clearfix"></div>
+						<label class="col-sm-6 info2" style='color: white; font-size: 12px;'> Telefone: </label>
+						<div class="clearfix"></div>
 
-					<label class="col-sm-6 info2" style='color: white; font-size: 12px;'> Telefone: </label>
-					<div class="clearfix"></div>
+						<div class="col-sm-6 info2 efeito2">{{tatuador.phone.number}}</div>
+						<div class="clearfix"></div>
 
-					<div class="col-sm-6 info2 efeito2">{{tatuador.phone.number}}</div>
-					<div class="clearfix"></div>
+						<label class="col-sm-6 info2" style='color: white; font-size: 12px;'> Email: </label>
+						<div class="clearfix"></div>
 
-					<label class="col-sm-6 info2" style='color: white; font-size: 12px;'> Email: </label>
-					<div class="clearfix"></div>
+						<div class="col-sm-6 info2 efeito2">{{tatuador.email}}</div>
+						<div class="clearfix"></div>
 
-					<div class="col-sm-6 info2 efeito2">{{tatuador.email}}</div>
-					<div class="clearfix"></div>
+						<label class="col-sm-6 info2" style='color: white; font-size: 12px;'> País: </label>
+						<div class="clearfix"></div>
 
-					<label class="col-sm-6 info2" style='color: white; font-size: 12px;'> País: </label>
-					<div class="clearfix"></div>
+						<div class="col-sm-6 info2 efeito2">{{tatuador.country}}</div>
+						<div class="clearfix"></div>
 
-					<div class="col-sm-6 info2 efeito2">{{tatuador.country}}</div>
-					<div class="clearfix"></div>
+						<label class="col-sm-6 info2" style='color: white; font-size: 12px;'> Estado: </label>
+						<div class="clearfix"></div>
 
-					<label class="col-sm-6 info2" style='color: white; font-size: 12px;'> Estado: </label>
-					<div class="clearfix"></div>
+						<div class="col-sm-6 info2 efeito2">{{tatuador.state}}</div>
+						<div class="clearfix"></div>
 
-					<div class="col-sm-6 info2 efeito2">{{tatuador.state}}</div>
-					<div class="clearfix"></div>
+						<label class="col-sm-6 info2" style='color: white; font-size: 12px;'> Cidade: </label>
+						<div class="clearfix"></div>
 
-					<label class="col-sm-6 info2" style='color: white; font-size: 12px;'> Cidade: </label>
-					<div class="clearfix"></div>
+						<div class="col-sm-6 info2 efeito2">{{tatuador.city}}</div>
+						<div class="clearfix"></div>
 
-					<div class="col-sm-6 info2 efeito2">{{tatuador.city}}</div>
-					<div class="clearfix"></div>
+						<div class="col-sm-3 info1">Bio</div>
+						<div class="clearfix"></div>
 
-					<div class="col-sm-3 info1">Bio</div>
-					<div class="clearfix"></div>
+						<div class="col-sm-6 info2 efeito2">{{tatuador.bio}}</div>
+						<div class="clearfix"></div>
 
-					<div class="col-sm-6 info2 efeito2">{{tatuador.bio}}</div>
-					<div class="clearfix"></div>
-
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
-</body>
-</html>
+	</body>
+	</html>

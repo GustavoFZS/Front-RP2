@@ -6,6 +6,28 @@
 	<link rel="stylesheet" href="../css/formatacao.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
 	<script src="../components/bootstrap/dist/js/bootstrap.js"></script>
+
+	<style>
+	.text {
+
+		resize: none;
+		color: white;
+		margin:5px;
+		background-color:rgba(0,0,0,0);
+		display:inline-block;
+
+	}
+	.text2 {
+
+		resize: none;
+		color: rgba(255,255,255,0.7);
+		margin:5px;
+		background-color:rgba(0,0,0,0);
+		display:inline-block;
+
+	}
+</style>
+
 </head>
 
 <body ng-controller="editarOrcCtrl">
@@ -92,10 +114,12 @@
 						<button style="background-color:#0c8494; margin-bottom:10px; margin-top:10px; border-radius: 10px;" type="button" id="Editar-button" class="btn btn-primary btn-lg btn-block" ng-click="responder()">Editar orçamento</button>
 
 
-						<div class="form-control pre-scrollable" type="text" style ="background-color:rgba(0,0,0,0.5); height: 300px;">
+						<div class="form-control pre-scrollable" type="text" style ="background-color:rgba(0,0,0,0.5); height: 300px; overflow-x: hidden;">
 							<div ng-repeat="msg in negociacao.chat">
-								<div ng-if="msg.sender._id==usuario._id" style ="color: white; margin:10px; ">você: {{msg.message}}</div>
-								<div ng-if="msg.sender._id!=usuario._id" style ="color: #A9A9A9; margin:10px;">{{msg.sender.name}}: {{msg.message}}</div>
+								<div ng-if="!comparaData(msg._id)" style ="color: #A9A9A9; margin:10px; text-align: center; font-weight: bold;">{{dateFromObjectId(msg._id)}}</div>
+								<div ng-if="msg.sender._id==usuario._id"><p class="text" cols="100" disabled>{{timeFromObjectId(msg._id)}} você: {{msg.message}}</p>
+								</div>
+								<div ng-if="msg.sender._id!=usuario._id" ><p class="text2" cols="100" disabled>{{timeFromObjectId(msg._id)}} {{msg.sender.name}}: {{msg.message}} </p></div>
 							</div>
 						</div>
 

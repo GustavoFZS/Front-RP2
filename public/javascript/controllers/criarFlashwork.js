@@ -26,47 +26,48 @@ serviceCriaFlw.service('criaFlwService', function($http) {
       data: dataForm,
       headers: { 'Content-Type': undefined},
       transformRequest: angular.identity
-      }).then(function (success){
+    }).then(function (success){
 
-        console.log(success);
-        callback(success, true);
+      console.log(success);
+      callback(success, true);
 
-      },function (error){
+    },function (error){
 
-        console.log(error);
-        callback(error, false);
+      console.log(error);
+      callback(error, false);
 
-      });
+    });
 
-    };
+  };
 
-    this.getEstilos = function(callback) {
+  this.getEstilos = function(callback) {
 
-      $http({
-        method: 'GET',
-        url: 'https://do-my-tattoo.herokuapp.com/style/getStyles',
+    $http({
+      method: 'GET',
+      url: 'https://do-my-tattoo.herokuapp.com/style/getStyles',
 
-      }).then(function (success){
+    }).then(function (success){
 
-        console.log(success);
-        callback(success, true);
+      console.log(success);
+      callback(success, true);
 
-      },function (error){
+    },function (error){
 
-        console.log(error);
-        callback(error, false);
+      console.log(error);
+      callback(error, false);
 
-      });
+    });
 
-    };
+  };
 
-  });
+});
 
 //--- AQUI VAI O CONTROLLER (agora mais magro)
 serviceCriaFlw.controller('criaFlwCtrl', function($scope, $rootScope, $location, criaFlwService) {
 
   $scope.tempo = "";
   $scope.imagens;
+  $scope.leilao = false;
   var formdata = new FormData();
 
   $scope.enviar = function(){
@@ -83,10 +84,15 @@ serviceCriaFlw.controller('criaFlwCtrl', function($scope, $rootScope, $location,
     criaFlwService.novoFlw(formdata, function(data, success){
 
       console.log('retornou');
+      formdata = new FormData();
 
       if(success) {
         console.log('sucesso');
-        alert("Flashwork criado!");
+        swal(
+          'Flashwork criado!',
+          'Agora seu Flashwork está disponível para todos nossos usuários',
+          'success'
+          );
       }
       else {
         console.log('merda deu ');

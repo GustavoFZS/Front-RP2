@@ -87,6 +87,10 @@ serviceEditarOrc.controller('editarOrcCtrl', function($scope, $rootScope, $locat
 
 	$scope.negociacao = $rootScope.negociacao;
 
+	$scope.dataId;
+
+	var ultimaData = "0";
+
 	$scope.enviar = function(){
 		editarOrcService.setOrcamento($scope.idCliente, $scope.negociacao.tattooArtist, $scope.local, $scope.altura, 
 			$scope.largura, $scope.descricao, function(data, success){
@@ -96,7 +100,11 @@ serviceEditarOrc.controller('editarOrcCtrl', function($scope, $rootScope, $locat
 				if(success) {
 					console.log('sucesso');
 					$rootScope.orcamento = $scope;
-					alert("Enviado!");
+					swal(
+						'Enviado!',
+						'Seu orçamento foi enviada.',
+						'success'
+						);
 				}
 				else {
 					console.log('merda deu ');
@@ -112,7 +120,11 @@ serviceEditarOrc.controller('editarOrcCtrl', function($scope, $rootScope, $locat
 
 			if(success) {
 				console.log('sucesso');
-				alert("respondido!");
+				swal(
+					'Enviado!',
+					'Sua proposta foi enviada.',
+					'success'
+					);
 			}
 			else {
 				console.log('merda deu ');
@@ -123,12 +135,16 @@ serviceEditarOrc.controller('editarOrcCtrl', function($scope, $rootScope, $locat
 
 	$scope.comentar = function(){
 		editarOrcService.setChat($scope.orcamento._id , $scope.negociacao._id, $rootScope.usuario._id, $scope.mensagem, function(data, success){
-		console.log('retornou');
+			console.log('retornou');
 
 			if(success) {
 				console.log('sucesso');
 				$scope.mensagem = '';
-				alert("Comentário enviado!");
+				swal(
+					'respondido!',
+					' ',
+					'success'
+					);
 			}
 			else {
 				console.log('merda deu ');
@@ -139,6 +155,23 @@ serviceEditarOrc.controller('editarOrcCtrl', function($scope, $rootScope, $locat
 
 	$scope.goPagina = function(view){
         $location.path(view); // path not hash
+    };
+
+    $scope.dateFromObjectId = function (objectId) {
+    	var d = new Date(parseInt(objectId.substring(0, 8), 16) * 1000);
+    	return (d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear());
+    };
+
+    $scope.timeFromObjectId = function (objectId) {
+    	var d = new Date(parseInt(objectId.substring(0, 8), 16) * 1000);
+    	return ("[" + d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds() + "]");
+    };
+
+    $scope.comparaData = function (data) {
+    	console.log(ultimaData + " " + $scope.dateFromObjectId(data));
+    	resultado = $scope.dateFromObjectId(data) === ultimaData;
+    	ultimaData = $scope.dateFromObjectId(data);
+    	return resultado;
     };
 
 });

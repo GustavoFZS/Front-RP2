@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>Login</title>
 <link rel="stylesheet" href="../components/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" src="../components/sweetalert2/dist/sweetalert2.min.css">
 <link rel="stylesheet" href="../css/formatacao.css">
 </head>
 <body ng-controller="loginCtrl">
@@ -26,12 +27,12 @@
 								</label>
 								<div class="panel-heading">
 									<div class="row-fluid user-row">
-										<input class="form-control" placeholder="Usuario" id="Usuario" type="text" ng-model="user">
+										<input style="background-color:#545454; color: white;" class="form-control" placeholder="Usuario" id="Usuario" type="text" ng-model="user">
 									</div>
 								</div>
 								<div class="panel-heading transparent">
 									<div class="row-fluid user-row transparent">
-										<input class="form-control" placeholder="Senha" id="Senha" type="password" ng-model="password">
+										<input style="background-color:#545454; color: white;" class="form-control" placeholder="Senha" id="Senha" type="password" ng-model="password">
 									</div>
 								</div>
 								<br></br>

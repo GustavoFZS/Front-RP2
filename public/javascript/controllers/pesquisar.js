@@ -31,6 +31,8 @@ servicePesquisa.controller('pesquisaCtrl', function($scope, $rootScope, $locatio
 
 	$scope.tatuador = "";
 
+  $scope.pesquisarTatuadores = true;
+
 	$rootScope.estilo = "";
 
 	$scope.chamaPesquisa = function(){
