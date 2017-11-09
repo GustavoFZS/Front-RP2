@@ -1,35 +1,31 @@
 var serviceCriaOrc = angular.module('DoMyTattoo');
 
+serviceCriaOrc.directive('ngFiles', ['$parse', function ($parse) {
+
+  function fn_link(scope, element, attrs) {
+    var onChange = $parse(attrs.ngFiles);
+    element.on('change', function (event) {
+      onChange(scope, { $files: event.target.files });
+    });
+  };
+
+  return {
+    link: fn_link
+  }
+} ])
+
 serviceCriaOrc.service('criaOrcService', function($http) {
   // privado
   var message = {};
 
-  this.novoOrc = function(idCliente, myArray, tatuador, local, altura, 
-    largura, descricao, tatuadorId, callback) {
+  this.novoOrc = function(dataForm, callback) {
 
     $http({
       method: 'POST',
-      url: 'https://do-my-tattoo.herokuapp.com/order/new',
-      data: {
-        'customer': idCliente,
-        'place': local,
-        "images": [
-
-        ],
-        'description': descricao,
-        'size': {
-          'height': altura,
-          'width': largura
-        },
-        'negotiations': [
-        {
-          "tattooArtist": {
-            'userName' : tatuador,
-            '_id': tatuadorId
-          }
-        }
-        ]    
-      }
+        url: 'https://do-my-tattoo.herokuapp.com/order/new',
+      data: dataForm,
+      headers: { 'Content-Type': undefined},
+      transformRequest: angular.identity
     }).then(function (success){
 
       console.log(success);
@@ -52,28 +48,21 @@ serviceCriaOrc.controller('criaOrcCtrl', function($scope, $rootScope, $location,
 
   $scope.tatuador = $rootScope.tatuador;
 
-  var myArray = new Array();
   var formdata = new FormData();
-
-  myArray.push("https://fotostatuagens.com/wp-content/uploads/2016/07/Tatuagens-de-Onda.jpg");
 
   $scope.enviar = function(){
 
-    formdata.append('customer', $rootScope.usuario._id);
-    formdata.append('place', $scope.estilo._id);
-    formdata.append('description', $scope.valor);
-    formdata.append('height', $scope.leilao);
-    formdata.append('width', $scope.tempo);
-    formdata.append('photos', $scope.imagens);
-    formdata.append('tattooArtist', $rootScope.usuario._id);
-    formdata.append('style', $scope.estilo._id);
-    formdata.append('price', $scope.valor);
-    formdata.append('isAuction', $scope.leilao);
-    formdata.append('expireDate', $scope.tempo);
-    formdata.append('photos', $scope.imagens);
+    formdata = new FormData();
 
-    criaOrcService.novoOrc($scope.idCliente, myArray, $rootScope.tatuador.userName, $scope.local, $scope.altura, 
-      $scope.largura, $scope.descricao, $rootScope.tatuador._id, function(data, success){
+    formdata.append('customer', $rootScope.usuario._id);
+    formdata.append('place', $scope.local);
+    formdata.append('size.height', $scope.altura);
+    formdata.append('size.width', $scope.largura);
+    formdata.append('photos', $scope.imagens);
+    formdata.append('negotiations[0][tattooArtist]', $scope.tatuador._id);
+    formdata.append('description', $scope.descricao);
+
+    criaOrcService.novoOrc(formdata, function(data, success){
 
         console.log('retornou');
 
@@ -90,6 +79,12 @@ serviceCriaOrc.controller('criaOrcCtrl', function($scope, $rootScope, $location,
         }
 
       });
+  };
+
+  $scope.getTheFiles = function ($files) {
+
+    $scope.imagens = $files['0'];
+
   };
 
   $scope.goPagina = function(view){
